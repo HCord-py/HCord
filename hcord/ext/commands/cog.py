@@ -24,7 +24,7 @@ DEALINGS IN THE SOFTWARE.
 from __future__ import annotations
 
 import inspect
-import discord.utils
+import hcord.utils
 
 from typing import Any, Callable, ClassVar, Dict, Generator, List, Optional, TYPE_CHECKING, Tuple, TypeVar, Type
 
@@ -43,7 +43,7 @@ __all__ = (
 CogT = TypeVar('CogT', bound='Cog')
 FuncT = TypeVar('FuncT', bound=Callable[..., Any])
 
-MISSING: Any = discord.utils.MISSING
+MISSING: Any = hcord.utils.MISSING
 
 class CogMeta(type):
     """A metaclass for defining a cog.

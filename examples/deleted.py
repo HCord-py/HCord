@@ -1,6 +1,6 @@
-import discord
+import hcord
 
-class MyClient(discord.Client):
+class MyClient(hcord.Client):
     async def on_ready(self):
         print(f'Logged in as {self.user} (ID: {self.user.id})')
         print('------')

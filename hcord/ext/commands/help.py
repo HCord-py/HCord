@@ -30,7 +30,7 @@ import re
 
 from typing import Optional, TYPE_CHECKING
 
-import discord.utils
+import hcord.utils
 
 from .core import Group, Command
 from .errors import CommandError
@@ -326,7 +326,7 @@ class HelpCommand:
         self.command_attrs = attrs = options.pop('command_attrs', {})
         attrs.setdefault('name', 'help')
         attrs.setdefault('help', 'Shows this message')
-        self.context: Context = discord.utils.MISSING
+        self.context: Context = hcord.utils.MISSING
         self._command_impl = _HelpCommandImpl(self, **self.command_attrs)
 
     def copy(self):
@@ -600,7 +600,7 @@ class HelpCommand:
             The maximum width of the commands.
         """
 
-        as_lengths = (discord.utils._string_width(c.name) for c in commands)
+        as_lengths = (hcord.utils._string_width(c.name) for c in commands)
         return max(as_lengths, default=0)
 
     def get_destination(self):
@@ -840,7 +840,7 @@ class HelpCommand:
         if cog is not None:
             return await self.send_cog_help(cog)
 
-        maybe_coro = discord.utils.maybe_coroutine
+        maybe_coro = hcord.utils.maybe_coroutine
 
         # If it's not a cog then it's a command.
         # Since we want to have detailed errors when someone
@@ -964,7 +964,7 @@ class DefaultHelpCommand(HelpCommand):
         self.paginator.add_line(heading)
         max_size = max_size or self.get_max_size(commands)
 
-        get_width = discord.utils._string_width
+        get_width = hcord.utils._string_width
         for command in commands:
             name = command.name
             width = max_size - (get_width(name) - len(name))

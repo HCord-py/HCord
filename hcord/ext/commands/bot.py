@@ -35,7 +35,7 @@ import traceback
 import types
 from typing import Any, Callable, Mapping, List, Dict, TYPE_CHECKING, Optional, TypeVar, Type, Union
 
-import discord
+import hcord
 
 from .core import GroupMixin
 from .view import StringView
@@ -47,7 +47,7 @@ from .cog import Cog
 if TYPE_CHECKING:
     import importlib.machinery
 
-    from discord.message import Message
+    from hcord.message import Message
     from ._types import (
         Check,
         CoroFunc,
@@ -60,7 +60,7 @@ __all__ = (
     'AutoShardedBot',
 )
 
-MISSING: Any = discord.utils.MISSING
+MISSING: Any = hcord.utils.MISSING
 
 T = TypeVar('T')
 CFT = TypeVar('CFT', bound='CoroFunc')
@@ -156,7 +156,7 @@ class BotBase(GroupMixin):
         for event in self.extra_events.get(ev, []):
             self._schedule_event(event, ev, *args, **kwargs)  # type: ignore
 
-    @discord.utils.copy_doc(discord.Client.close)
+    @hcord.utils.copy_doc(hcord.Client.close)
     async def close(self) -> None:
         for extension in tuple(self.__extensions):
             try:
@@ -313,9 +313,9 @@ class BotBase(GroupMixin):
             return True
 
         # type-checker doesn't distinguish between functions and methods
-        return await discord.utils.async_all(f(ctx) for f in data)  # type: ignore
+        return await hcord.utils.async_all(f(ctx) for f in data)  # type: ignore
 
-    async def is_owner(self, user: discord.User) -> bool:
+    async def is_owner(self, user: hcord.User) -> bool:
         """|coro|
 
         Checks if a :class:`~discord.User` or :class:`~discord.Member` is the owner of
@@ -548,7 +548,7 @@ class BotBase(GroupMixin):
 
         if existing is not None:
             if not override:
-                raise discord.ClientException(f'Cog named {cog_name!r} already loaded')
+                raise hcord.ClientException(f'Cog named {cog_name!r} already loaded')
             self.remove_cog(cog_name)
 
         cog = cog._inject(self)
@@ -882,7 +882,7 @@ class BotBase(GroupMixin):
         """
         prefix = ret = self.command_prefix
         if callable(prefix):
-            ret = await discord.utils.maybe_coroutine(prefix, self, message)
+            ret = await hcord.utils.maybe_coroutine(prefix, self, message)
 
         if not isinstance(ret, str):
             try:
@@ -948,7 +948,7 @@ class BotBase(GroupMixin):
                 # if the context class' __init__ consumes something from the view this
                 # will be wrong.  That seems unreasonable though.
                 if message.content.startswith(tuple(prefix)):
-                    invoked_prefix = discord.utils.find(view.skip_string, prefix)
+                    invoked_prefix = hcord.utils.find(view.skip_string, prefix)
                 else:
                     return ctx
 
@@ -1033,7 +1033,7 @@ class BotBase(GroupMixin):
     async def on_message(self, message):
         await self.process_commands(message)
 
-class Bot(BotBase, discord.Client):
+class Bot(BotBase, hcord.Client):
     """Represents a discord bot.
 
     This class is a subclass of :class:`discord.Client` and as a result
@@ -1105,7 +1105,7 @@ class Bot(BotBase, discord.Client):
     """
     pass
 
-class AutoShardedBot(BotBase, discord.AutoShardedClient):
+class AutoShardedBot(BotBase, hcord.AutoShardedClient):
     """This is similar to :class:`.Bot` except that it is inherited from
     :class:`discord.AutoShardedClient` instead.
     """

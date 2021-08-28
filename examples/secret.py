@@ -1,7 +1,7 @@
 import typing
 
-import discord
-from discord.ext import commands
+import hcord
+from hcord.ext import commands
 
 bot = commands.Bot(command_prefix=commands.when_mentioned, description="Nothing to see here!")
 
@@ -27,16 +27,16 @@ def create_overwrites(ctx, *objects):
     # a dict comprehension is being utilised here to set the same permission overwrites
     # for each `discord.Role` or `discord.Member`.
     overwrites = {
-        obj: discord.PermissionOverwrite(view_channel=True)
+        obj: hcord.PermissionOverwrite(view_channel=True)
         for obj in objects
     }
 
     # prevents the default role (@everyone) from viewing the channel
     # if it isn't already allowed to view the channel.
-    overwrites.setdefault(ctx.guild.default_role, discord.PermissionOverwrite(view_channel=False))
+    overwrites.setdefault(ctx.guild.default_role, hcord.PermissionOverwrite(view_channel=False))
 
     # makes sure the client is always allowed to view the channel.
-    overwrites[ctx.guild.me] = discord.PermissionOverwrite(view_channel=True)
+    overwrites[ctx.guild.me] = hcord.PermissionOverwrite(view_channel=True)
 
     return overwrites
 
@@ -44,7 +44,7 @@ def create_overwrites(ctx, *objects):
 # it is best to lock it to be guild-only.
 @secret.command()
 @commands.guild_only()
-async def text(ctx: commands.Context, name: str, *objects: typing.Union[discord.Role, discord.Member]):
+async def text(ctx: commands.Context, name: str, *objects: typing.Union[hcord.Role, hcord.Member]):
     """This makes a text channel with a specified name 
     that is only visible to roles or members that are specified.
     """
@@ -60,7 +60,7 @@ async def text(ctx: commands.Context, name: str, *objects: typing.Union[discord.
 
 @secret.command()
 @commands.guild_only()
-async def voice(ctx: commands.Context, name: str, *objects: typing.Union[discord.Role, discord.Member]):
+async def voice(ctx: commands.Context, name: str, *objects: typing.Union[hcord.Role, hcord.Member]):
     """This does the same thing as the `text` subcommand
     but instead creates a voice channel.
     """
@@ -75,7 +75,7 @@ async def voice(ctx: commands.Context, name: str, *objects: typing.Union[discord
 
 @secret.command()
 @commands.guild_only()
-async def emoji(ctx: commands.Context, emoji: discord.PartialEmoji, *roles: discord.Role):
+async def emoji(ctx: commands.Context, emoji: hcord.PartialEmoji, *roles: hcord.Role):
     """This clones a specified emoji that only specified roles
     are allowed to use.
     """

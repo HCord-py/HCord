@@ -1,8 +1,8 @@
-from discord.ext import tasks
+from hcord.ext import tasks
 
-import discord
+import hcord
 
-class MyClient(discord.Client):
+class MyClient(hcord.Client):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 

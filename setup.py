@@ -54,7 +54,7 @@ packages = [
     'hcord.ext.tasks',
 ]
 
-setup(name='Hcord',
+setup(name='hcord',
       author='HexyeDEV',
       url='https://github.com/HexyeDEV/hcord',
       project_urls={

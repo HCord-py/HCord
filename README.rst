@@ -4,11 +4,11 @@ HCord
 .. image:: https://discord.com/api/guilds/336642139381301249/embed.png
    :target: https://discord.gg/r3sSKJJ
    :alt: Discord server invite
-.. image:: https://img.shields.io/pypi/v/discord.py.svg
-   :target: https://pypi.python.org/pypi/discord.py
+.. image:: https://img.shields.io/pypi/v/hcord.svg
+   :target: https://pypi.python.org/pypi/hcord
    :alt: PyPI version info
-.. image:: https://img.shields.io/pypi/pyversions/discord.py.svg
-   :target: https://pypi.python.org/pypi/discord.py
+.. image:: https://img.shields.io/pypi/pyversions/hcord.svg
+   :target: https://pypi.python.org/pypi/hcord
    :alt: PyPI supported Python versions
 
 A fork of discord.py project. HCord is a modern, easy to use, feature-rich, and async ready API wrapper for Discord written in Python.
@@ -30,27 +30,27 @@ To install the library without full voice support, you can just run the followin
 .. code:: sh
 
     # Linux/macOS
-    python3 -m pip install -U discord.py
+    python3 -m pip install -U hcord
 
     # Windows
-    py -3 -m pip install -U discord.py
+    py -3 -m pip install -U hcord
 
 Otherwise to get voice support you should run the following command:
 
 .. code:: sh
 
     # Linux/macOS
-    python3 -m pip install -U "discord.py[voice]"
+    python3 -m pip install -U "hcord[voice]"
 
     # Windows
-    py -3 -m pip install -U discord.py[voice]
+    py -3 -m pip install -U hcord[voice]
 
 
 To install the development version, do the following:
 
 .. code:: sh
 
-    $ git clone https://github.com/HexyeDEV/HCord
+    $ git clone https://github.com/HCord/HCord
     $ cd discord.py
     $ python3 -m pip install -U .[voice]
 
@@ -70,9 +70,9 @@ Quick Example
 
 .. code:: py
 
-    import discord
+    import hcord
 
-    class MyClient(discord.Client):
+    class MyClient(hcord.Client):
         async def on_ready(self):
             print('Logged on as', self.user)
 
@@ -92,8 +92,8 @@ Bot Example
 
 .. code:: py
 
-    import discord
-    from discord.ext import commands
+    import hcord
+    from hcord.ext import commands
 
     bot = commands.Bot(command_prefix='>')
 

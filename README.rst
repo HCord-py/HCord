@@ -50,7 +50,7 @@ To install the development version, do the following:
 
 .. code:: sh
 
-    $ git clone https://github.com/HexyeDEV/hcord
+    $ git clone https://github.com/HexyeDEV/HCord
     $ cd discord.py
     $ python3 -m pip install -U .[voice]
 

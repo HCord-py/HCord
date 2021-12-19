@@ -1,4 +1,4 @@
-discord.py
+HCord
 ==========
 
 .. image:: https://discord.com/api/guilds/336642139381301249/embed.png
@@ -11,13 +11,7 @@ discord.py
    :target: https://pypi.python.org/pypi/discord.py
    :alt: PyPI supported Python versions
 
-A modern, easy to use, feature-rich, and async ready API wrapper for Discord written in Python.
-
-Fork info
---------------------------
-
-This is a fork of the original prject: discord.py made by Rapptz.
-This project will be updated and will still have support.
+A fork of discord.py project. HCord is a modern, easy to use, feature-rich, and async ready API wrapper for Discord written in Python.
 
 Key Features
 -------------
@@ -56,7 +50,7 @@ To install the development version, do the following:
 
 .. code:: sh
 
-    $ git clone https://github.com/HexyeDEV/hcord
+    $ git clone https://github.com/HexyeDEV/HCord
     $ cd discord.py
     $ python3 -m pip install -U .[voice]
 

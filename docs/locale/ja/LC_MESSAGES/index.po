@@ -1,7 +1,7 @@
 
 msgid ""
 msgstr ""
-"Project-Id-Version:  discordpy\n"
+"Project-Id-Version:  hcord\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-23 22:41-0400\n"
 "PO-Revision-Date: 2020-10-24 02:41+0000\n"
@@ -15,14 +15,14 @@ msgstr ""
 "Generated-By: Babel 2.5.3\n"
 
 #: ../../index.rst:7
-msgid "Welcome to discord.py"
-msgstr "discord.py へようこそ。"
+msgid "Welcome to hcord"
+msgstr "hcord へようこそ。"
 
 #: ../../index.rst:11
 msgid ""
-"discord.py is a modern, easy to use, feature-rich, and async ready API "
-"wrapper for Discord."
-msgstr "discord.py は機能豊富かつモダンで使いやすい、非同期処理にも対応したDiscord用のAPIラッパーです。"
+"hcord is a modern, easy to use, feature-rich, and async ready API "
+"wrapper for hcord."
+msgstr "hcord は機能豊富かつモダンで使いやすい、非同期処理にも対応したhcord用のAPIラッパーです。"
 
 #: ../../index.rst:14
 msgid "**Features:**"
@@ -37,8 +37,8 @@ msgid "Sane rate limit handling that prevents 429s"
 msgstr "429エラー防止の為のレート制限"
 
 #: ../../index.rst:18
-msgid "Implements the entire Discord API"
-msgstr "Discord APIを完全にカバー"
+msgid "Implements the entire hcord API"
+msgstr "hcord APIを完全にカバー"
 
 #: ../../index.rst:19
 msgid "Command extension to aid with bot creation"

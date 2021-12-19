@@ -1,7 +1,7 @@
 
 msgid ""
 msgstr ""
-"Project-Id-Version:  discordpy\n"
+"Project-Id-Version:  hcord\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-23 22:41-0400\n"
 "PO-Revision-Date: 2020-10-24 02:41+0000\n"
@@ -20,22 +20,22 @@ msgstr "ログの設定"
 
 #: ../../logging.rst:7
 msgid ""
-"*discord.py* logs errors and debug information via the :mod:`logging` "
+"*hcord* logs errors and debug information via the :mod:`logging` "
 "python module. It is strongly recommended that the logging module is "
 "configured, as no errors or warnings will be output if it is not set up. "
 "Configuration of the ``logging`` module can be as simple as::"
 msgstr ""
-"*discord.py* はPythonの :mod:`logging` "
+"*hcord* はPythonの :mod:`logging` "
 "モジュールを介してエラーやデバッグの情報を記録します。loggingモジュールが設定されていない場合は、エラーや警告が出力されないため、設定するとを強くおすすめします。loggingモジュールの設定は下記手順で簡単に実装が可能です。"
 
 #: ../../logging.rst:16
 #, fuzzy
 msgid ""
 "Placed at the start of the application. This will output the logs from "
-"discord as well as other libraries that use the ``logging`` module "
+"hcord as well as other libraries that use the ``logging`` module "
 "directly to the console."
 msgstr ""
-"アプリケーションの始めにこれを書き加えるだけです。これはdiscordからのログを ``logging`` "
+"アプリケーションの始めにこれを書き加えるだけです。これはhcordからのログを ``logging`` "
 "モジュールを用いた他のライブラリ同様、コンソールに出力します。"
 
 #: ../../logging.rst:20
@@ -53,11 +53,11 @@ msgstr ""
 #, fuzzy
 msgid ""
 "More advanced setups are possible with the :mod:`logging` module. For "
-"example to write the logs to a file called ``discord.log`` instead of "
+"example to write the logs to a file called ``hcord.log`` instead of "
 "outputting them to the console the following snippet can be used::"
 msgstr ""
 "また、 :mod:`logging` モジュールでは更に高度な設定が可能です。たとえば、コンソールへ出力するのではなく、 "
-"``discord.log`` というファイルにログを出力するには、以下のスニペットが利用できます。"
+"``hcord.log`` というファイルにログを出力するには、以下のスニペットが利用できます。"
 
 #: ../../logging.rst:37
 #, fuzzy

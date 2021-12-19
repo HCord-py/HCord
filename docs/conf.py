@@ -1,5 +1,5 @@
 #
-# discord.py documentation build configuration file, created by
+# hcord documentation build configuration file, created by
 # sphinx-quickstart on Fri Aug 21 05:43:30 2015.
 #
 # This file is execfile()d with the current directory set to its
@@ -49,7 +49,7 @@ autodoc_typehints = 'none'
 # napoleon_attr_annotations = False
 
 extlinks = {
-    'issue': ('https://github.com/Rapptz/discord.py/issues/%s', 'GH-'),
+    'issue': ('https://github.com/Rapptz/hcord/issues/%s', 'GH-'),
 }
 
 # Links used for cross-referencing stuff in other documentation
@@ -159,18 +159,18 @@ html_experimental_html5_writer = True
 html_theme = 'basic'
 
 html_context = {
-  'discord_invite': 'https://discord.gg/r3sSKJJ',
-  'discord_extensions': [
-    ('discord.ext.commands', 'ext/commands'),
-    ('discord.ext.tasks', 'ext/tasks'),
+  'hcord_invite': 'https://hcord.gg/r3sSKJJ',
+  'hcord_extensions': [
+    ('hcord.ext.commands', 'ext/commands'),
+    ('hcord.ext.tasks', 'ext/tasks'),
   ],
 }
 
 resource_links = {
-  'discord': 'https://discord.gg/r3sSKJJ',
-  'issues': 'https://github.com/Rapptz/discord.py/issues',
-  'discussions': 'https://github.com/Rapptz/discord.py/discussions',
-  'examples': f'https://github.com/Rapptz/discord.py/tree/{branch}/examples',
+  'hcord': 'https://hcord.gg/r3sSKJJ',
+  'issues': 'https://github.com/Rapptz/hcord/issues',
+  'discussions': 'https://github.com/Rapptz/hcord/discussions',
+  'examples': f'https://github.com/Rapptz/hcord/tree/{branch}/examples',
 }
 
 # Theme options are theme-specific and customize the look and feel of a theme
@@ -196,7 +196,7 @@ resource_links = {
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-html_favicon = './images/discord_py_logo.ico'
+html_favicon = './images/hcord_py_logo.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -271,7 +271,7 @@ html_js_files = [
 ]
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'discord.pydoc'
+htmlhelp_basename = 'hcorddoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -293,7 +293,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'discord.py.tex', 'discord.py Documentation',
+  ('index', 'hcord.tex', 'hcord Documentation',
    'Rapptz', 'manual'),
 ]
 
@@ -323,7 +323,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'discord.py', 'discord.py Documentation',
+    ('index', 'hcord', 'hcord Documentation',
      ['Rapptz'], 1)
 ]
 
@@ -337,8 +337,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'discord.py', 'discord.py Documentation',
-   'Rapptz', 'discord.py', 'One line description of project.',
+  ('index', 'hcord', 'hcord Documentation',
+   'Rapptz', 'hcord', 'One line description of project.',
    'Miscellaneous'),
 ]
 
@@ -357,5 +357,5 @@ texinfo_documents = [
 def setup(app):
   if app.config.language == 'ja':
     app.config.intersphinx_mapping['py'] = ('https://docs.python.org/ja/3', None)
-    app.config.html_context['discord_invite'] = 'https://discord.gg/nXzj3dg'
-    app.config.resource_links['discord'] = 'https://discord.gg/nXzj3dg'
+    app.config.html_context['hcord_invite'] = 'https://hcord.gg/nXzj3dg'
+    app.config.resource_links['hcord'] = 'https://hcord.gg/nXzj3dg'

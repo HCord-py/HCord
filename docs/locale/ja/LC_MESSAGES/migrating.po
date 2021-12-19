@@ -1,7 +1,7 @@
 
 msgid ""
 msgstr ""
-"Project-Id-Version:  discordpy\n"
+"Project-Id-Version:  hcord\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-23 22:41-0400\n"
 "PO-Revision-Date: 2020-10-24 02:41+0000\n"
@@ -33,11 +33,11 @@ msgstr "すべての意図と目的を達成するために変更点が長大に
 #: ../../migrating.rst:14
 msgid ""
 "Part of the redesign involves making things more easy to use and natural."
-" Things are done on the :ref:`models <discord_api_models>` instead of "
+" Things are done on the :ref:`models <hcord_api_models>` instead of "
 "requiring a :class:`Client` instance to do any work."
 msgstr ""
 "一部の書き換えは，より使いやすく自然に物事を表現するために行われています。あらゆる仕事をするのに :class:`Client` "
-"インスタンスを要求するのではなく，代わりに :ref:`models <discord_api_models>` "
+"インスタンスを要求するのではなく，代わりに :ref:`models <hcord_api_models>` "
 "を用いることができるようになりました。"
 
 #: ../../migrating.rst:18
@@ -51,8 +51,8 @@ msgid ""
 "to remove support for Python versions lower than 3.5.3, which essentially"
 " means that **support for Python 3.4 is dropped**."
 msgstr ""
-"discord.py の開発をより簡単にし，またその依存関係にあるライブラリをアップグレードして Python 3.7 "
-"以上を使えるようにするために，discord.py は Python 3.5.3 "
+"hcord の開発をより簡単にし，またその依存関係にあるライブラリをアップグレードして Python 3.7 "
+"以上を使えるようにするために，hcord は Python 3.5.3 "
 "より古いバージョンに対するサポートを諦めざるを得ませんでした。これはつまり **Python 3.4 に対するサポートは打ち切られた** "
 "ということです。"
 
@@ -212,9 +212,9 @@ msgstr "モデルのステートフル化"
 msgid ""
 "As mentioned earlier, a lot of functionality was moved out of "
 ":class:`Client` and put into their respective :ref:`model "
-"<discord_api_models>`."
+"<hcord_api_models>`."
 msgstr ""
-"前述したように、多くの機能が :class:`Client` から各々の :ref:`model <discord_api_models>` "
+"前述したように、多くの機能が :class:`Client` から各々の :ref:`model <hcord_api_models>` "
 "へと移されました。"
 
 #: ../../migrating.rst:92
@@ -836,8 +836,8 @@ msgstr ""
 "を使うべきでしょう。"
 
 #: ../../migrating.rst:294
-msgid "The types are split into two different :ref:`discord_api_abcs`:"
-msgstr "型は二通りの :ref:`discord_api_abcs` に分けられます。"
+msgid "The types are split into two different :ref:`hcord_api_abcs`:"
+msgstr "型は二通りの :ref:`hcord_api_abcs` に分けられます。"
 
 #: ../../migrating.rst:296
 msgid ":class:`abc.GuildChannel` for guild channels."
@@ -928,16 +928,16 @@ msgstr "``Channel.is_private``"
 
 #: ../../migrating.rst:345
 msgid ""
-"Use ``isinstance`` instead with one of the :ref:`discord_api_abcs` "
+"Use ``isinstance`` instead with one of the :ref:`hcord_api_abcs` "
 "instead."
-msgstr "代わりに ``isinstance`` と :ref:`discord_api_abcs` を使用してください。"
+msgstr "代わりに ``isinstance`` と :ref:`hcord_api_abcs` を使用してください。"
 
 #: ../../migrating.rst:346
 msgid ""
-"e.g. ``isinstance(channel, discord.abc.GuildChannel)`` will check if it "
+"e.g. ``isinstance(channel, hcord.abc.GuildChannel)`` will check if it "
 "isn't a private channel."
 msgstr ""
-"例を挙げると ``isinstance(channel, discord.abc.GuildChannel)`` "
+"例を挙げると ``isinstance(channel, hcord.abc.GuildChannel)`` "
 "でプライベートチャンネルであるかを確認できます。"
 
 #: ../../migrating.rst:348
@@ -960,11 +960,11 @@ msgstr ""
 
 #: ../../migrating.rst:354
 msgid ""
-"The concept of a default channel was removed from Discord. See `#329 "
-"<https://github.com/hammerandchisel/discord-api-docs/pull/329>`_."
+"The concept of a default channel was removed from hcord. See `#329 "
+"<https://github.com/hammerandchisel/hcord-api-docs/pull/329>`_."
 msgstr ""
-"デフォルトチャンネルの概念は、Discordから削除されました。 `#329 "
-"<https://github.com/hammerandchisel/discord-api-docs/pull/329>`_ "
+"デフォルトチャンネルの概念は、hcordから削除されました。 `#329 "
+"<https://github.com/hammerandchisel/hcord-api-docs/pull/329>`_ "
 "を参照してください。"
 
 #: ../../migrating.rst:357
@@ -1058,8 +1058,8 @@ msgid "**Added**"
 msgstr "**追加**"
 
 #: ../../migrating.rst:391
-msgid ":class:`Attachment` to represent a discord attachment."
-msgstr "Discordのアタッチメントを表す :class:`Attachment` 。"
+msgid ":class:`Attachment` to represent a hcord attachment."
+msgstr "hcordのアタッチメントを表す :class:`Attachment` 。"
 
 #: ../../migrating.rst:392
 msgid ":class:`CategoryChannel` to represent a channel category."
@@ -1241,12 +1241,12 @@ msgstr ""
 
 #: ../../migrating.rst:484
 msgid ""
-"You can also get single elements a la :func:`discord.utils.find` or "
-":func:`discord.utils.get` via :meth:`AsyncIterator.get` or "
+"You can also get single elements a la :func:`hcord.utils.find` or "
+":func:`hcord.utils.get` via :meth:`AsyncIterator.get` or "
 ":meth:`AsyncIterator.find`: ::"
 msgstr ""
 ":meth:`AsyncIterator.get` または :meth:`AsyncIterator.find` を介して "
-":func:`discord.utils.get` または :func:`discord.utils.find` "
+":func:`hcord.utils.get` または :func:`hcord.utils.find` "
 "で単一の要素を取得することもできます。"
 
 #: ../../migrating.rst:489
@@ -1756,12 +1756,12 @@ msgid ""
 ":meth:`Client.connect` has gained a new keyword argument, ``reconnect`` "
 "that defaults to ``True`` which controls the reconnect logic. When "
 "enabled, the client will automatically reconnect in all instances of your"
-" internet going offline or Discord going offline with exponential back-"
+" internet going offline or hcord going offline with exponential back-"
 "off."
 msgstr ""
 ":meth:`Client.connect` には新しいキーワード引数が追加されました。再接続機能の設定を行う ``reconnect`` "
 "はデフォルトで ``True`` "
-"に設定されています。有効にすると、クライアントは全インターネットのインスタンスがオフラインになった際や、Discordが指数関数的後退によってオフラインになった際に自動で再接続を試みます。"
+"に設定されています。有効にすると、クライアントは全インターネットのインスタンスがオフラインになった際や、hcordが指数関数的後退によってオフラインになった際に自動で再接続を試みます。"
 
 #: ../../migrating.rst:770
 msgid ""
@@ -2499,7 +2499,7 @@ msgid ""
 "This system was eventually expanded to support a "
 ":class:`~ext.commands.Converter` system to allow plugging in the "
 ":class:`~ext.commands.Context` and do more complicated conversions such "
-"as the built-in \"discord\" converters."
+"as the built-in \"hcord\" converters."
 msgstr ""
 
 #: ../../migrating.rst:1149

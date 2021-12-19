@@ -1,7 +1,7 @@
 
 msgid ""
 msgstr ""
-"Project-Id-Version:  discordpy\n"
+"Project-Id-Version:  hcord\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-23 22:41-0400\n"
 "PO-Revision-Date: 2020-10-24 02:41+0000\n"
@@ -105,7 +105,7 @@ msgid ""
 msgstr ""
 
 #: ../../whats_new.rst:36
-msgid "This is the same as having ``discord.Member`` as the type-hint."
+msgid "This is the same as having ``hcord.Member`` as the type-hint."
 msgstr ""
 
 #: ../../whats_new.rst:37
@@ -121,7 +121,7 @@ msgstr "v1.2.0"
 
 #: ../../whats_new.rst:44
 msgid ""
-"This version came with forced breaking changes that Discord is requiring "
+"This version came with forced breaking changes that hcord is requiring "
 "all bots to go through on October 7th. It is highly recommended to read "
 "the documentation on intents, :ref:`intents_primer`."
 msgstr ""
@@ -178,7 +178,7 @@ msgstr ""
 #: ../../whats_new.rst:60
 msgid ""
 "Add more concrete exceptions for 500 class errors under "
-":class:`DiscordServerError` (:issue:`5797`)"
+":class:`hcordServerError` (:issue:`5797`)"
 msgstr ""
 
 #: ../../whats_new.rst:61
@@ -811,7 +811,7 @@ msgstr ""
 
 #: ../../whats_new.rst:243
 msgid ""
-"The domain name was changed from ``discordapp.com`` to ``discord.com`` to"
+"The domain name was changed from ``hcordapp.com`` to ``hcord.com`` to"
 " prepare for the required domain migration"
 msgstr ""
 
@@ -1056,7 +1056,7 @@ msgstr ""
 
 #: ../../whats_new.rst:338
 msgid ""
-"Add support for new audit log types. See :ref:`discord-api-audit-logs` "
+"Add support for new audit log types. See :ref:`hcord-api-audit-logs` "
 "for more information. (:issue:`2427`)"
 msgstr ""
 
@@ -1127,7 +1127,7 @@ msgstr ""
 #: ../../whats_new.rst:351
 msgid ""
 "Add :attr:`User.system` and :attr:`Profile.system` to know whether a user"
-" is an official Discord Trust and Safety account."
+" is an official hcord Trust and Safety account."
 msgstr ""
 
 #: ../../whats_new.rst:352
@@ -1411,7 +1411,7 @@ msgstr ""
 
 #: ../../whats_new.rst:411
 msgid ""
-"Due to Discord providing :class:`Member` data in mentions, users will now"
+"Due to hcord providing :class:`Member` data in mentions, users will now"
 " be upgraded to :class:`Member` more often if mentioned."
 msgstr ""
 
@@ -1451,7 +1451,7 @@ msgstr ""
 
 #: ../../whats_new.rst:418
 msgid ""
-"Along with that, the rate limiting code now uses Discord's response to "
+"Along with that, the rate limiting code now uses hcord's response to "
 "wait. If you need to use the system clock again for whatever reason, "
 "consider passing ``assume_synced_clock`` in :class:`Client`."
 msgstr ""
@@ -1544,7 +1544,7 @@ msgstr ""
 #: ../../whats_new.rst:451
 msgid ""
 "Fix issue where :attr:`Guild.premium_subscription_count` would be "
-"``None`` due to a Discord bug. (:issue:`2331`, :issue:`2376`)."
+"``None`` due to a hcord bug. (:issue:`2331`, :issue:`2376`)."
 msgstr ""
 
 #: ../../whats_new.rst:456
@@ -1786,7 +1786,7 @@ msgstr ""
 
 #: ../../whats_new.rst:538
 msgid ""
-"The Discord error code is now shown in the exception message for "
+"The hcord error code is now shown in the exception message for "
 ":exc:`HTTPException`."
 msgstr ""
 
@@ -1889,7 +1889,7 @@ msgid ""
 msgstr ""
 
 #: ../../whats_new.rst:580 ../../whats_new.rst:601 ../../whats_new.rst:620
-msgid "``discord.ext.commands``"
+msgid "``hcord.ext.commands``"
 msgstr ""
 
 #: ../../whats_new.rst:582
@@ -1991,7 +1991,7 @@ msgid ""
 msgstr ""
 
 #: ../../whats_new.rst:615
-msgid "Make the output of ``python -m discord --version`` a bit more useful."
+msgid "Make the output of ``python -m hcord --version`` a bit more useful."
 msgstr ""
 
 #: ../../whats_new.rst:616
@@ -2369,7 +2369,7 @@ msgstr ""
 #: ../../whats_new.rst:821
 msgid ""
 "Add :meth:`Client.change_presence` for changing your status with the new "
-"Discord API change."
+"hcord API change."
 msgstr ""
 
 #: ../../whats_new.rst:823
@@ -2750,7 +2750,7 @@ msgstr ""
 
 #: ../../whats_new.rst:957
 msgid ""
-"New utility function, :func:`discord.utils.get` to simplify retrieval of "
+"New utility function, :func:`hcord.utils.get` to simplify retrieval of "
 "items based on attributes."
 msgstr ""
 
@@ -2808,7 +2808,7 @@ msgstr ""
 
 #: ../../whats_new.rst:967
 msgid ""
-"Add :class:`discord.Game` to represent any game with custom text to send "
+"Add :class:`hcord.Game` to represent any game with custom text to send "
 "to :meth:`Client.change_status`."
 msgstr ""
 
@@ -2904,7 +2904,7 @@ msgstr ""
 #: ../../whats_new.rst:993
 msgid ""
 ":meth:`Client.logs_from` now handles cases where limit > 100 to sidestep "
-"the discord API limitation."
+"the hcord API limitation."
 msgstr ""
 
 #: ../../whats_new.rst:994
@@ -2920,7 +2920,7 @@ msgstr ""
 #: ../../whats_new.rst:996
 msgid ""
 "Mentions are now triggered normally. This was changed due to the way "
-"discord handles it internally."
+"hcord handles it internally."
 msgstr ""
 
 #: ../../whats_new.rst:997

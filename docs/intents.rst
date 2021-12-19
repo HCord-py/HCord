@@ -1,6 +1,6 @@
 :orphan:
 
-.. currentmodule:: discord
+.. currentmodule:: hcord
 .. versionadded:: 1.5
 .. _intents_primer:
 
@@ -16,22 +16,22 @@ If intents are not passed, then the library defaults to every intent being enabl
 What intents are needed?
 --------------------------
 
-The intents that are necessary for your bot can only be dictated by yourself. Each attribute in the :class:`Intents` class documents what :ref:`events <discord-api-events>` it corresponds to and what kind of cache it enables.
+The intents that are necessary for your bot can only be dictated by yourself. Each attribute in the :class:`Intents` class documents what :ref:`events <hcord-api-events>` it corresponds to and what kind of cache it enables.
 
 For example, if you want a bot that functions without spammy events like presences or typing then we could do the following:
 
 .. code-block:: python3
    :emphasize-lines: 7,9,10
 
-    import discord
-    intents = discord.Intents.default()
+    import hcord
+    intents = hcord.Intents.default()
     intents.typing = False
     intents.presences = False
 
     # Somewhere else:
-    # client = discord.Client(intents=intents)
+    # client = hcord.Client(intents=intents)
     # or
-    # from discord.ext import commands
+    # from hcord.ext import commands
     # bot = commands.Bot(command_prefix='!', intents=intents)
 
 Note that this doesn't enable :attr:`Intents.members` since it's a privileged intent.
@@ -41,15 +41,15 @@ Another example showing a bot that only deals with messages and guild informatio
 .. code-block:: python3
    :emphasize-lines: 7,9,10
 
-    import discord
-    intents = discord.Intents(messages=True, guilds=True)
+    import hcord
+    intents = hcord.Intents(messages=True, guilds=True)
     # If you also want reaction events enable the following:
     # intents.reactions = True
 
     # Somewhere else:
-    # client = discord.Client(intents=intents)
+    # client = hcord.Client(intents=intents)
     # or
-    # from discord.ext import commands
+    # from hcord.ext import commands
     # bot = commands.Bot(command_prefix='!', intents=intents)
 
 .. _privileged_intents:
@@ -61,22 +61,22 @@ With the API change requiring bot authors to specify intents, some intents were 
 
 A privileged intent is one that requires you to go to the developer portal and manually enable it. To enable privileged intents do the following:
 
-1. Make sure you're logged on to the `Discord website <https://discord.com>`_.
-2. Navigate to the `application page <https://discord.com/developers/applications>`_.
+1. Make sure you're logged on to the `hcord website <https://hcord.com>`_.
+2. Navigate to the `application page <https://hcord.com/developers/applications>`_.
 3. Click on the bot you want to enable privileged intents for.
 4. Navigate to the bot tab on the left side of the screen.
 
-    .. image:: /images/discord_bot_tab.png
+    .. image:: /images/hcord_bot_tab.png
         :alt: The bot tab in the application page.
 
 5. Scroll down to the "Privileged Gateway Intents" section and enable the ones you want.
 
-    .. image:: /images/discord_privileged_intents.png
+    .. image:: /images/hcord_privileged_intents.png
         :alt: The privileged gateway intents selector.
 
 .. warning::
 
-    Enabling privileged intents when your bot is in over 100 guilds requires going through `bot verification <https://support.discord.com/hc/en-us/articles/360040720412>`_. If your bot is already verified and you would like to enable a privileged intent you must go through `Discord support <https://dis.gd/contact>`_ and talk to them about it.
+    Enabling privileged intents when your bot is in over 100 guilds requires going through `bot verification <https://support.hcord.com/hc/en-us/articles/360040720412>`_. If your bot is already verified and you would like to enable a privileged intent you must go through `hcord support <https://dis.gd/contact>`_ and talk to them about it.
 
 .. note::
 
@@ -112,18 +112,18 @@ Member Intent
 Member Cache
 -------------
 
-Along with intents, Discord now further restricts the ability to cache members and expects bot authors to cache as little as is necessary. However, to properly maintain a cache the :attr:`Intents.members` intent is required in order to track the members who left and properly evict them.
+Along with intents, hcord now further restricts the ability to cache members and expects bot authors to cache as little as is necessary. However, to properly maintain a cache the :attr:`Intents.members` intent is required in order to track the members who left and properly evict them.
 
 To aid with member cache where we don't need members to be cached, the library now has a :class:`MemberCacheFlags` flag to control the member cache. The documentation page for the class goes over the specific policies that are possible.
 
-It should be noted that certain things do not need a member cache since Discord will provide full member information if possible. For example:
+It should be noted that certain things do not need a member cache since hcord will provide full member information if possible. For example:
 
 - :func:`on_message` will have :attr:`Message.author` be a member even if cache is disabled.
 - :func:`on_voice_state_update` will have the ``member`` parameter be a member even if cache is disabled.
 - :func:`on_reaction_add` will have the ``user`` parameter be a member when in a guild even if cache is disabled.
 - :func:`on_raw_reaction_add` will have :attr:`RawReactionActionEvent.member` be a member when in a guild even if cache is disabled.
-- The reaction add events do not contain additional information when in direct messages. This is a Discord limitation.
-- The reaction removal events do not have member information. This is a Discord limitation.
+- The reaction add events do not contain additional information when in direct messages. This is a hcord limitation.
+- The reaction removal events do not have member information. This is a hcord limitation.
 
 Other events that take a :class:`Member` will require the use of the member cache. If absolute accuracy over the member cache is desirable, then it is advisable to have the :attr:`Intents.members` intent enabled.
 
@@ -155,27 +155,27 @@ Some common issues relating to the mandatory intent change.
 Where'd my members go?
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Due to an :ref:`API change <intents_member_cache>` Discord is now forcing developers who want member caching to explicitly opt-in to it. This is a Discord mandated change and there is no way to bypass it. In order to get members back you have to explicitly enable the :ref:`members privileged intent <privileged_intents>` and change the :attr:`Intents.members` attribute to true.
+Due to an :ref:`API change <intents_member_cache>` hcord is now forcing developers who want member caching to explicitly opt-in to it. This is a hcord mandated change and there is no way to bypass it. In order to get members back you have to explicitly enable the :ref:`members privileged intent <privileged_intents>` and change the :attr:`Intents.members` attribute to true.
 
 For example:
 
 .. code-block:: python3
    :emphasize-lines: 3,6,8,9
 
-    import discord
-    intents = discord.Intents.default()
+    import hcord
+    intents = hcord.Intents.default()
     intents.members = True
 
     # Somewhere else:
-    # client = discord.Client(intents=intents)
+    # client = hcord.Client(intents=intents)
     # or
-    # from discord.ext import commands
+    # from hcord.ext import commands
     # bot = commands.Bot(command_prefix='!', intents=intents)
 
 Why does ``on_ready`` take so long to fire?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-As part of the API change regarding intents, Discord also changed how members are loaded in the beginning. Originally the library could request 75 guilds at once and only request members from guilds that have the :attr:`Guild.large` attribute set to ``True``. With the new intent changes, Discord mandates that we can only send 1 guild per request. This causes a 75x slowdown which is further compounded by the fact that *all* guilds, not just large guilds are being requested.
+As part of the API change regarding intents, hcord also changed how members are loaded in the beginning. Originally the library could request 75 guilds at once and only request members from guilds that have the :attr:`Guild.large` attribute set to ``True``. With the new intent changes, hcord mandates that we can only send 1 guild per request. This causes a 75x slowdown which is further compounded by the fact that *all* guilds, not just large guilds are being requested.
 
 There are a few solutions to fix this.
 
@@ -187,6 +187,6 @@ To illustrate the slowdown caused by the API change, take a bot who is in 840 gu
 
 Under the original system this would result in 2 requests to fetch the member list (75 guilds, 20 guilds) roughly taking 60 seconds. With :attr:`Intents.members` but not :attr:`Intents.presences` this requires 840 requests, with a rate limit of 120 requests per 60 seconds means that due to waiting for the rate limit it totals to around 7 minutes of waiting for the rate limit to fetch all the members. With both :attr:`Intents.members` and :attr:`Intents.presences` we mostly get the old behaviour so we're only required to request for the 95 guilds that are large, this is slightly less than our rate limit so it's close to the original timing to fetch the member list.
 
-Unfortunately due to this change being required from Discord there is nothing that the library can do to mitigate this.
+Unfortunately due to this change being required from hcord there is nothing that the library can do to mitigate this.
 
-If you truly dislike the direction Discord is going with their API, you can contact them via `support <https://dis.gd/contact>`_.
+If you truly dislike the direction hcord is going with their API, you can contact them via `support <https://dis.gd/contact>`_.

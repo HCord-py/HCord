@@ -30,7 +30,13 @@ import asyncio
 
 from . import utils
 from .enums import try_enum, InteractionType, InteractionResponseType
-from .errors import InteractionResponded, HTTPException, ClientException
+from .errors import (
+    InteractionResponded,
+    HTTPException,
+    ClientException,
+    InvalidData,
+    InvalidArgument
+)
 from .channel import PartialMessageable, ChannelType
 
 from .user import User
@@ -289,7 +295,7 @@ class Interaction:
         allowed_mentions: :class:`AllowedMentions`
             Controls the mentions being processed in this message.
             See :meth:`.abc.Messageable.send` for more information.
-        view: Optional[:class:`~discord.ui.View`]
+        view: Optional[:class:`~hcord.ui.View`]
             The updated view to update this message with. If ``None`` is passed then
             the view is removed.
 
@@ -357,6 +363,61 @@ class Interaction:
             self.application_id,
             self.token,
             session=self._session,
+        )
+
+    async def send(self, *args, **kwargs) -> Optional[Message]:
+        """|coro|
+        This is a shorthand function for helping in sending messages in
+        response to an interaction. If the response
+        :meth:`InteractionResponse.is_done()` then the message is sent
+        via the :attr:`Interaction.channel` instead.
+        .. warning::
+            Ephemeral messages should not be sent with this as if
+            the :attr:`Interaction.channel` is fallen back to,
+            ephemeral messages cannot be sent with this.
+        Returns
+        -------
+        Optional[:class:`Message`]
+            Message if the interaction has been responded to and the
+            interaction's channel was sent to. Else ``None``
+        Raises
+        ------
+        InvalidData
+            Somehow :attr:`Interaction.channel` was ``None``,
+            this may occur in threads.
+        """
+
+        if not self.response.is_done():
+            return await self.response.send_message(*args, **kwargs)
+        if self.channel is not None:
+            return await self.channel.send(*args, **kwargs)
+        raise InvalidData(
+            "Interaction.channel is None, this may occur in threads"
+        )
+
+    async def edit(self, *args, **kwargs) -> Optional[Message]:
+        """|coro|
+        This is a shorthand function for helping in editing messages in
+        response to an interaction. If the response
+        :meth:`InteractionResponse.is_done()` then the message is edited
+        via the :attr:`Interaction.message` instead.
+        Returns
+        -------
+        Optional[:class:`Message`]
+            Message if the interaction has been responded to and the
+            interaction's message was edited w/o using response. Else ``None``
+        Raises
+        ------
+        InvalidArgument
+            :attr:`Interaction.message` was ``None``,
+            this may occur in threads.
+        """
+        if not self.response.is_done():
+            return await self.response.edit_message(*args, **kwargs)
+        if self.message is not None:
+            return await self.message.edit(*args, **kwargs)
+        raise InvalidArgument(
+            "Interaction.message is None, this method is only for views"
         )
 
 
@@ -476,7 +537,7 @@ class InteractionResponse:
             ``embeds`` parameter.
         tts: :class:`bool`
             Indicates if the message should be sent using text-to-speech.
-        view: :class:`discord.ui.View`
+        view: :class:`hcord.ui.View`
             The view to send with the message.
         ephemeral: :class:`bool`
             Indicates if the message should only be visible to the user who started the interaction.
@@ -565,7 +626,7 @@ class InteractionResponse:
         attachments: List[:class:`Attachment`]
             A list of attachments to keep in the message. If ``[]`` is passed
             then all attachments are removed.
-        view: Optional[:class:`~discord.ui.View`]
+        view: Optional[:class:`~hcord.ui.View`]
             The updated view to update this message with. If ``None`` is passed then
             the view is removed.
 
@@ -662,7 +723,7 @@ class InteractionMessage(Message):
     This allows you to edit or delete the message associated with
     the interaction response. To retrieve this object see :meth:`Interaction.original_message`.
 
-    This inherits from :class:`discord.Message` with changes to
+    This inherits from :class:`hcord.Message` with changes to
     :meth:`edit` and :meth:`delete` to work.
 
     .. versionadded:: 2.0
@@ -702,7 +763,7 @@ class InteractionMessage(Message):
         allowed_mentions: :class:`AllowedMentions`
             Controls the mentions being processed in this message.
             See :meth:`.abc.Messageable.send` for more information.
-        view: Optional[:class:`~discord.ui.View`]
+        view: Optional[:class:`~hcord.ui.View`]
             The updated view to update this message with. If ``None`` is passed then
             the view is removed.
 

@@ -16,7 +16,7 @@ A modern, easy to use, feature-rich, and async ready API wrapper for Discord wri
 Fork info
 --------------------------
 
-This is a fork of the original project: discord.py made by Rapptz.
+This is a fork of discord.py project made by Rapptz.
 This project will be updated and will still have support.
 
 Key Features

@@ -10,7 +10,7 @@ Welcome to hcord
 .. image:: /images/snake_dark.svg
 
 hcord is a modern, easy to use, feature-rich, and async ready API wrapper
-for hcord.
+for discord.
 
 **Features:**
 

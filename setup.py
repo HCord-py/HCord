@@ -55,7 +55,7 @@ packages = [
 ]
 
 setup(name='hcord',
-      author='HexyeDEV',
+      author='HCord-py',
       url='https://github.com/HCord-py/hcord',
       project_urls={
         "Documentation": "https://hcord.readthedocs.io/en/latest/",

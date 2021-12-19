@@ -56,10 +56,10 @@ packages = [
 
 setup(name='hcord',
       author='HexyeDEV',
-      url='https://github.com/HexyeDEV/hcord',
+      url='https://github.com/HCord/hcord',
       project_urls={
         "Documentation": "https://hcord.readthedocs.io/en/latest/",
-        "Issue tracker": "https://github.com/HexyeDEV/hcord/issues",
+        "Issue tracker": "https://github.com/HCord/hcord/issues",
       },
       version=version,
       packages=packages,

@@ -1,8 +1,8 @@
 HCord
 ==========
 
-.. image:: https://discord.com/api/guilds/336642139381301249/embed.png
-   :target: https://discord.gg/r3sSKJJ
+.. image:: https://discord.com/api/guilds/922120436110733313/embed.png
+   :target: https://discord.gg/955qSJuDfd
    :alt: Discord server invite
 .. image:: https://img.shields.io/pypi/v/hcord.svg
    :target: https://pypi.python.org/pypi/hcord

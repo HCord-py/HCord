@@ -11,13 +11,7 @@ discord.py
    :target: https://pypi.python.org/pypi/discord.py
    :alt: PyPI supported Python versions
 
-A modern, easy to use, feature-rich, and async ready API wrapper for Discord written in Python.
-
-Fork info
---------------------------
-
-This is a fork of discord.py project made by Rapptz.
-This project will be updated and will still have support.
+A fork of discord.py project. hcord is a modern, easy to use, feature-rich, and async ready API wrapper for Discord written in Python.
 
 Key Features
 -------------

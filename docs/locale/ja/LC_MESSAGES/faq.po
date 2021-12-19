@@ -1,7 +1,7 @@
 
 msgid ""
 msgstr ""
-"Project-Id-Version:  discordpy\n"
+"Project-Id-Version:  hcord\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-23 22:41-0400\n"
 "PO-Revision-Date: 2020-10-24 02:41+0000\n"
@@ -21,9 +21,9 @@ msgstr "よくある質問"
 #: ../../faq.rst:7
 msgid ""
 "This is a list of Frequently Asked Questions regarding using "
-"``discord.py`` and its extension modules. Feel free to suggest a new "
+"``hcord`` and its extension modules. Feel free to suggest a new "
 "question or submit one via pull requests."
-msgstr "これは ``discord.py`` 及び 拡張モジュールに対して、よくある質問をまとめたものです。気軽に質問やプルリクエストを提出してください。"
+msgstr "これは ``hcord`` 及び 拡張モジュールに対して、よくある質問をまとめたものです。気軽に質問やプルリクエストを提出してください。"
 
 #: ../../faq.rst:11
 msgid "Questions"
@@ -141,7 +141,7 @@ msgstr ""
 #: ../../faq.rst:82
 msgid ""
 "Example code can be found in the `examples folder "
-"<https://github.com/Rapptz/discord.py/tree/master/examples>`_ in the "
+"<https://github.com/Rapptz/hcord/tree/master/examples>`_ in the "
 "repository."
 msgstr ""
 
@@ -221,13 +221,13 @@ msgid "How do I upload an image?"
 msgstr "画像をアップロードするにはどうすればいいですか。"
 
 #: ../../faq.rst:137
-msgid "To upload something to Discord you have to use the :class:`File` object."
-msgstr "Discordに何かをアップロードする際には :class:`File` オブジェクトを使用する必要があります。"
+msgid "To upload something to hcord you have to use the :class:`File` object."
+msgstr "hcordに何かをアップロードする際には :class:`File` オブジェクトを使用する必要があります。"
 
 #: ../../faq.rst:139
 msgid ""
 "A :class:`File` accepts two parameters, the file-like object (or file "
-"path) and the filename to pass to Discord when uploading."
+"path) and the filename to pass to hcord when uploading."
 msgstr ":class:`File` は二つのパラメータがあり、ファイルライクなオブジェクト(または、そのファイルパス)と、ファイル名を渡すことができます。"
 
 #: ../../faq.rst:142
@@ -357,10 +357,10 @@ msgstr "バックグラウンドで何かを動かすにはどうすればいい
 #: ../../faq.rst:247
 msgid ""
 "`Check the background_task.py example. "
-"<https://github.com/Rapptz/discord.py/blob/master/examples/background_task.py>`_"
+"<https://github.com/Rapptz/hcord/blob/master/examples/background_task.py>`_"
 msgstr ""
 "`background_task.pyの例を参照してください。 "
-"<https://github.com/Rapptz/discord.py/blob/master/examples/background_task.py>`_"
+"<https://github.com/Rapptz/hcord/blob/master/examples/background_task.py>`_"
 
 #: ../../faq.rst:250
 msgid "How do I get a specific model?"
@@ -465,10 +465,10 @@ msgstr "Embedの画像にローカルの画像を使用するにはどうすれ�
 
 #: ../../faq.rst:305
 msgid ""
-"Discord special-cases uploading an image attachment and using it within "
+"hcord special-cases uploading an image attachment and using it within "
 "an embed so that it will not display separately, but instead in the "
 "embed's thumbnail, image, footer or author icon."
-msgstr "特殊なケースとして、画像が別々に表示されないようDiscordにembedを用いてアップロードする際、画像は代わりにembedのサムネイルや画像、フッター、製作者アイコンに表示されます。"
+msgstr "特殊なケースとして、画像が別々に表示されないようhcordにembedを用いてアップロードする際、画像は代わりにembedのサムネイルや画像、フッター、製作者アイコンに表示されます。"
 
 #: ../../faq.rst:308
 msgid ""
@@ -480,8 +480,8 @@ msgstr ""
 "``attachment://image.png`` を設定します。このとき ``image.png`` は送信したい画像のファイル名にです。"
 
 #: ../../faq.rst:322
-msgid "Due to a Discord limitation, filenames may not include underscores."
-msgstr "Discord側の制限により、ファイル名にアンダースコアが含まれていない場合があります。"
+msgid "Due to a hcord limitation, filenames may not include underscores."
+msgstr "hcord側の制限により、ファイル名にアンダースコアが含まれていない場合があります。"
 
 #: ../../faq.rst:325
 #, fuzzy
@@ -490,18 +490,18 @@ msgstr "招待、または監査ログのエントリが作成されるイベン
 
 #: ../../faq.rst:327
 msgid ""
-"Since Discord does not dispatch this information in the gateway, the "
-"library cannot provide this information. This is currently a Discord "
+"Since hcord does not dispatch this information in the gateway, the "
+"library cannot provide this information. This is currently a hcord "
 "limitation."
-msgstr "Discordはゲートウェイでこの情報をディスパッチしないため、ライブラリによってこの情報を提供することはできません。これは現在、Discord側の制限です。"
+msgstr "hcordはゲートウェイでこの情報をディスパッチしないため、ライブラリによってこの情報を提供することはできません。これは現在、hcord側の制限です。"
 
 #: ../../faq.rst:331
 msgid "Commands Extension"
 msgstr "コマンド拡張"
 
 #: ../../faq.rst:333
-msgid "Questions regarding ``discord.ext.commands`` belong here."
-msgstr "``discord.ext.commands`` に関する質問。"
+msgid "Questions regarding ``hcord.ext.commands`` belong here."
+msgstr "``hcord.ext.commands`` に関する質問。"
 
 #: ../../faq.rst:336
 msgid "Why does ``on_message`` make my commands stop working?"

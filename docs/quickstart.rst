@@ -2,7 +2,7 @@
 
 .. _quickstart:
 
-.. currentmodule:: discord
+.. currentmodule:: hcord
 
 Quickstart
 ============
@@ -19,9 +19,9 @@ It looks something like this:
 
 .. code-block:: python3
 
-    import discord
+    import hcord
 
-    client = discord.Client()
+    client = hcord.Client()
 
     @client.event
     async def on_ready():
@@ -37,14 +37,14 @@ It looks something like this:
 
     client.run('your token here')
 
-Let's name this file ``example_bot.py``. Make sure not to name it ``discord.py`` as that'll conflict
+Let's name this file ``example_bot.py``. Make sure not to name it ``hcord`` as that'll conflict
 with the library.
 
 There's a lot going on here, so let's walk you through it step by step.
 
 1. The first line just imports the library, if this raises a `ModuleNotFoundError` or `ImportError`
    then head on over to :ref:`installing` section to properly install.
-2. Next, we create an instance of a :class:`Client`. This client is our connection to Discord.
+2. Next, we create an instance of a :class:`Client`. This client is our connection to hcord.
 3. We then use the :meth:`Client.event` decorator to register an event. This library has many events.
    Since this library is asynchronous, we do things in a "callback" style manner.
 
@@ -58,7 +58,7 @@ There's a lot going on here, so let's walk you through it step by step.
    then we send a message in the channel it was used in with ``'Hello!'``. This is a basic way of 
    handling commands, which can be later automated with the :doc:`./ext/commands/index` framework.
 6. Finally, we run the bot with our login token. If you need help getting your token or creating a bot,
-   look in the :ref:`discord-intro` section.
+   look in the :ref:`hcord-intro` section.
 
 
 Now that we've made a bot, we have to *run* the bot. Luckily, this is simple since this is just a

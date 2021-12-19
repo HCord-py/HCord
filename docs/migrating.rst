@@ -1,4 +1,4 @@
-.. currentmodule:: discord
+.. currentmodule:: hcord
 
 .. _migrating_1_0:
 
@@ -12,7 +12,7 @@ The amount of changes are so massive and long that for all intents and purposes,
 new library.
 
 Part of the redesign involves making things more easy to use and natural. Things are done on the
-:ref:`models <discord_api_models>` instead of requiring a :class:`Client` instance to do any work.
+:ref:`models <hcord_api_models>` instead of requiring a :class:`Client` instance to do any work.
 
 Python Version Change
 -----------------------
@@ -87,7 +87,7 @@ Models are Stateful
 ~~~~~~~~~~~~~~~~~~~~~
 
 As mentioned earlier, a lot of functionality was moved out of :class:`Client` and
-put into their respective :ref:`model <discord_api_models>`.
+put into their respective :ref:`model <hcord_api_models>`.
 
 A list of these changes is enumerated below.
 
@@ -291,22 +291,22 @@ In order to save memory the channels have been split into 4 different types:
 
 With this split came the removal of the ``is_private`` attribute. You should now use :func:`isinstance`.
 
-The types are split into two different :ref:`discord_api_abcs`:
+The types are split into two different :ref:`hcord_api_abcs`:
 
 - :class:`abc.GuildChannel` for guild channels.
 - :class:`abc.PrivateChannel` for private channels (DMs and group DMs).
 
 So to check if something is a guild channel you would do: ::
 
-    isinstance(channel, discord.abc.GuildChannel)
+    isinstance(channel, hcord.abc.GuildChannel)
 
 And to check if it's a private channel you would do: ::
 
-    isinstance(channel, discord.abc.PrivateChannel)
+    isinstance(channel, hcord.abc.PrivateChannel)
 
 Of course, if you're looking for only a specific type you can pass that too, e.g. ::
 
-    isinstance(channel, discord.TextChannel)
+    isinstance(channel, hcord.TextChannel)
 
 With this type split also came event changes, which are enumerated in :ref:`migrating_1_0_event_changes`.
 
@@ -342,8 +342,8 @@ They will be enumerated here.
 
 - ``Channel.is_private``
 
-    - Use ``isinstance`` instead with one of the :ref:`discord_api_abcs` instead.
-    - e.g. ``isinstance(channel, discord.abc.GuildChannel)`` will check if it isn't a private channel.
+    - Use ``isinstance`` instead with one of the :ref:`hcord_api_abcs` instead.
+    - e.g. ``isinstance(channel, hcord.abc.GuildChannel)`` will check if it isn't a private channel.
 
 - ``Client.accept_invite``
 
@@ -351,8 +351,8 @@ They will be enumerated here.
 
 - ``Guild.default_channel`` / ``Server.default_channel`` and ``Channel.is_default``
 
-    - The concept of a default channel was removed from Discord.
-      See `#329 <https://github.com/hammerandchisel/discord-api-docs/pull/329>`_.
+    - The concept of a default channel was removed from hcord.
+      See `#329 <https://github.com/hammerandchisel/hcord-api-docs/pull/329>`_.
 
 - ``Message.edited_timestamp``
 
@@ -388,7 +388,7 @@ They will be enumerated here.
 
 **Added**
 
-- :class:`Attachment` to represent a discord attachment.
+- :class:`Attachment` to represent a hcord attachment.
 - :class:`CategoryChannel` to represent a channel category.
 - :attr:`VoiceChannel.members` for fetching members connected to a voice channel.
 - :attr:`TextChannel.members` for fetching members that can see the channel.
@@ -430,7 +430,7 @@ Basically: ::
 
 This supports everything that the old ``send_message`` supported such as embeds: ::
 
-    e = discord.Embed(title='foo')
+    e = hcord.Embed(title='foo')
     await channel.send('Hello', embed=e)
 
 There is a caveat with sending files however, as this functionality was expanded to support multiple
@@ -440,13 +440,13 @@ file attachments, you must now use a :class:`File` pseudo-namedtuple to upload a
     await client.send_file(channel, 'cool.png', filename='testing.png', content='Hello')
 
     # after
-    await channel.send('Hello', file=discord.File('cool.png', 'testing.png'))
+    await channel.send('Hello', file=hcord.File('cool.png', 'testing.png'))
 
 This change was to facilitate multiple file uploads: ::
 
     my_files = [
-        discord.File('cool.png', 'testing.png'),
-        discord.File(some_fp, 'cool_filename.png'),
+        hcord.File('cool.png', 'testing.png'),
+        hcord.File(some_fp, 'cool_filename.png'),
     ]
 
     await channel.send('Your images:', files=my_files)
@@ -481,7 +481,7 @@ A handy aspect of returning :class:`AsyncIterator` is that it allows you to chai
 The functions passed to :meth:`AsyncIterator.map` or :meth:`AsyncIterator.filter` can be either coroutines or regular
 functions.
 
-You can also get single elements a la :func:`discord.utils.find` or :func:`discord.utils.get` via
+You can also get single elements a la :func:`hcord.utils.find` or :func:`hcord.utils.get` via
 :meth:`AsyncIterator.get` or :meth:`AsyncIterator.find`: ::
 
     my_last_message = await channel.history().get(author=client.user)
@@ -627,7 +627,7 @@ Before: ::
 After: ::
 
     vc = await channel.connect()
-    vc.play(discord.FFmpegPCMAudio('testing.mp3'), after=lambda e: print('done', e))
+    vc.play(hcord.FFmpegPCMAudio('testing.mp3'), after=lambda e: print('done', e))
     vc.is_playing()
     vc.pause()
     vc.resume()
@@ -639,7 +639,7 @@ playing at runtime via :attr:`VoiceClient.source`.
 
 For example, you can add a :class:`PCMVolumeTransformer` to allow changing the volume: ::
 
-    vc.source = discord.PCMVolumeTransformer(vc.source)
+    vc.source = hcord.PCMVolumeTransformer(vc.source)
     vc.source.volume = 0.6
 
 An added benefit of the redesign is that it will be much more resilient towards reconnections:
@@ -741,7 +741,7 @@ logic and state handling.
 
 Usage is as simple as doing: ::
 
-    client = discord.AutoShardedClient()
+    client = hcord.AutoShardedClient()
 
 instead of using :class:`Client`.
 
@@ -751,10 +751,10 @@ per shard.
 If you want more control over the sharding you can specify ``shard_count`` and ``shard_ids``. ::
 
     # launch 10 shards regardless
-    client = discord.AutoShardedClient(shard_count=10)
+    client = hcord.AutoShardedClient(shard_count=10)
 
     # launch specific shard IDs in this process
-    client = discord.AutoShardedClient(shard_count=10, shard_ids=(1, 2, 5, 6))
+    client = hcord.AutoShardedClient(shard_count=10, shard_ids=(1, 2, 5, 6))
 
 For users of the command extension, there is also :class:`~ext.commands.AutoShardedBot` which behaves similarly.
 
@@ -765,7 +765,7 @@ In v1.0, the auto reconnection logic has been powered up significantly.
 
 :meth:`Client.connect` has gained a new keyword argument, ``reconnect`` that defaults to ``True`` which controls
 the reconnect logic. When enabled, the client will automatically reconnect in all instances of your internet going
-offline or Discord going offline with exponential back-off.
+offline or hcord going offline with exponential back-off.
 
 :meth:`Client.run` and :meth:`Client.start` gains this keyword argument as well, but for most cases you will not
 need to specify it unless turning it off.
@@ -1144,7 +1144,7 @@ with a singular argument denoting the argument passed by the user as a string.
 
 This system was eventually expanded to support a :class:`~ext.commands.Converter` system to
 allow plugging in the :class:`~ext.commands.Context` and do more complicated conversions such
-as the built-in "discord" converters.
+as the built-in "hcord" converters.
 
 In v1.0 this converter system was revamped to allow instances of :class:`~ext.commands.Converter` derived
 classes to be passed. For consistency, the :meth:`~ext.commands.Converter.convert` method was changed to

@@ -1,6 +1,6 @@
 :orphan:
 
-.. currentmodule:: discord
+.. currentmodule:: hcord
 
 .. _migrating-to-async:
 
@@ -91,7 +91,7 @@ After:
     def on_socket_raw_send(payload): pass
 
 Note that ``on_status`` was removed. If you want its functionality, use :func:`on_member_update`.
-See :ref:`discord-api-events` for more information. Other removed events include ``on_socket_closed``, ``on_socket_receive``, and ``on_socket_opened``.
+See :ref:`hcord-api-events` for more information. Other removed events include ``on_socket_closed``, ``on_socket_receive``, and ``on_socket_opened``.
 
 
 Coroutines
@@ -175,12 +175,12 @@ After:
 
 .. code-block:: python3
 
-    server.region == discord.ServerRegion.us_west
-    member.status = discord.Status.online
-    channel.type == discord.ChannelType.text
+    server.region == hcord.ServerRegion.us_west
+    member.status = hcord.Status.online
+    channel.type == hcord.ChannelType.text
 
 The main reason for this change was to reduce the use of finicky strings in the API as this
-could give users a false sense of power. More information can be found in the :ref:`discord-api-enums` page.
+could give users a false sense of power. More information can be found in the :ref:`hcord-api-enums` page.
 
 Properties
 -----------
@@ -270,7 +270,7 @@ in the function signature.
 Running the Client
 --------------------
 
-In earlier versions of discord.py, ``client.run()`` was a blocking call to the main thread
+In earlier versions of hcord, ``client.run()`` was a blocking call to the main thread
 that called it. In v0.10.0 it is still a blocking call but it handles the event loop for you.
 However, in order to do that you must pass in your credentials to :meth:`Client.run`.
 
@@ -300,10 +300,10 @@ event loop then doing so is quite straightforward:
 
 .. code-block:: python3
 
-    import discord
+    import hcord
     import asyncio
 
-    client = discord.Client()
+    client = hcord.Client()
 
     @asyncio.coroutine
     def main_task():

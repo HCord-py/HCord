@@ -1,12 +1,12 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) 2015-present, Rapptz
-# This file is distributed under the same license as the discord.py package.
+# This file is distributed under the same license as the hcord package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: discord.py 1.5.1\n"
+"Project-Id-Version: hcord 1.5.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-23 22:41-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -52,7 +52,7 @@ msgstr ""
 msgid ""
 "The intents that are necessary for your bot can only be dictated by "
 "yourself. Each attribute in the :class:`Intents` class documents what "
-":ref:`events <discord-api-events>` it corresponds to and what kind of "
+":ref:`events <hcord-api-events>` it corresponds to and what kind of "
 "cache it enables."
 msgstr ""
 
@@ -94,14 +94,14 @@ msgstr ""
 
 #: ../../intents.rst:60
 msgid ""
-"Make sure you're logged on to the `Discord website "
-"<https://discord.com>`_."
+"Make sure you're logged on to the `hcord website "
+"<https://hcord.com>`_."
 msgstr ""
 
 #: ../../intents.rst:61
 msgid ""
 "Navigate to the `application page "
-"<https://discord.com/developers/applications>`_"
+"<https://hcord.com/developers/applications>`_"
 msgstr ""
 
 #: ../../intents.rst:62
@@ -121,9 +121,9 @@ msgstr ""
 #: ../../intents.rst:75
 msgid ""
 "Enabling privileged intents when your bot is in over 100 guilds requires "
-"going through `bot verification <https://support.discord.com/hc/en-"
+"going through `bot verification <https://support.hcord.com/hc/en-"
 "us/articles/360040720412>`_. If your bot is already verified and you "
-"would like to enable a privileged intent you must go through `discord "
+"would like to enable a privileged intent you must go through `hcord "
 "support <https://dis.gd/contact>`_ and talk to them about it."
 msgstr ""
 
@@ -191,7 +191,7 @@ msgstr ""
 
 #: ../../intents.rst:111
 msgid ""
-"Along with intents, Discord now further restricts the ability to cache "
+"Along with intents, hcord now further restricts the ability to cache "
 "members and expects bot authors to cache as little as is necessary. "
 "However, to properly maintain a cache the :attr:`Intents.members` intent "
 "is required in order to track the members who left and properly evict "
@@ -209,7 +209,7 @@ msgstr ""
 #: ../../intents.rst:115
 msgid ""
 "It should be noted that certain things do not need a member cache since "
-"Discord will provide full member information if possible. For example:"
+"hcord will provide full member information if possible. For example:"
 msgstr ""
 
 #: ../../intents.rst:117
@@ -240,7 +240,7 @@ msgstr ""
 #: ../../intents.rst:121
 msgid ""
 "The reaction removal events do not have the member information. This is a"
-" Discord limitation."
+" hcord limitation."
 msgstr ""
 
 #: ../../intents.rst:123
@@ -321,9 +321,9 @@ msgstr ""
 
 #: ../../intents.rst:153
 msgid ""
-"Due to an :ref:`API change <intents_member_cache>` Discord is now forcing"
+"Due to an :ref:`API change <intents_member_cache>` hcord is now forcing"
 " developers who want member caching to explicitly opt-in to it. This is a"
-" Discord mandated change and there is no way to bypass it. In order to "
+" hcord mandated change and there is no way to bypass it. In order to "
 "get members back you have to explicitly enable the :ref:`members "
 "privileged intent <privileged_intents>` and change the "
 ":attr:`Intents.members` attribute to true."
@@ -339,11 +339,11 @@ msgstr ""
 
 #: ../../intents.rst:172
 msgid ""
-"As part of the API change regarding intents, Discord also changed how "
+"As part of the API change regarding intents, hcord also changed how "
 "members are loaded in the beginning. Originally the library could request"
 " 75 guilds at once and only request members from guilds that have the "
 ":attr:`Guild.large` attribute set to ``True``. With the new intent "
-"changes, Discord mandates that we can only send 1 guild per request. This"
+"changes, hcord mandates that we can only send 1 guild per request. This"
 " causes a 75x slowdown which is further compounded by the fact that *all*"
 " guilds, not just large guilds are being requested."
 msgstr ""
@@ -391,7 +391,7 @@ msgstr ""
 
 #: ../../intents.rst:184
 msgid ""
-"Unfortunately due to this change being required from Discord there is "
+"Unfortunately due to this change being required from hcord there is "
 "nothing that the library can do to mitigate this."
 msgstr ""
 
@@ -401,8 +401,8 @@ msgstr ""
 
 #: ../../intents.rst:189
 msgid ""
-"For now, the old gateway will still work so downgrading to discord.py "
-"v1.4 is still possible and will continue to be supported until Discord "
+"For now, the old gateway will still work so downgrading to hcord "
+"v1.4 is still possible and will continue to be supported until hcord "
 "officially kills the v6 gateway, which is imminent. However it is "
 "paramount that for the future of your bot that you upgrade your code to "
 "the new way things are done."
@@ -424,6 +424,6 @@ msgstr ""
 
 #: ../../intents.rst:203
 msgid ""
-"If you truly dislike the direction Discord is going with their API, you "
+"If you truly dislike the direction hcord is going with their API, you "
 "can contact them via `support <https://dis.gd/contact>`_"
 msgstr ""

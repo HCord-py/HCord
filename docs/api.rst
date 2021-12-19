@@ -1,9 +1,9 @@
-.. currentmodule:: discord
+.. currentmodule:: hcord
 
 API Reference
 ===============
 
-The following section outlines the API of discord.py.
+The following section outlines the API of hcord.
 
 .. note::
 
@@ -11,7 +11,7 @@ The following section outlines the API of discord.py.
     in an output independent way.  If the logging module is not configured,
     these logs will not be output anywhere.  See :ref:`logging_setup` for
     more information on how to set up and use the logging module with
-    discord.py.
+    hcord.
 
 Version Related Info
 ---------------------
@@ -162,11 +162,11 @@ PCMVolumeTransformer
 Opus Library
 ~~~~~~~~~~~~~
 
-.. autofunction:: discord.opus.load_opus
+.. autofunction:: hcord.opus.load_opus
 
-.. autofunction:: discord.opus.is_loaded
+.. autofunction:: hcord.opus.is_loaded
 
-.. _discord-api-events:
+.. _hcord-api-events:
 
 Event Reference
 ---------------
@@ -177,9 +177,9 @@ There are two ways to register an event, the first way is through the use of
 :meth:`Client.event`. The second way is through subclassing :class:`Client` and
 overriding the specific events. For example: ::
 
-    import discord
+    import hcord
 
-    class MyClient(discord.Client):
+    class MyClient(hcord.Client):
         async def on_message(self, message):
             if message.author == self.user:
                 return
@@ -199,7 +199,7 @@ to handle it, which defaults to print a traceback and ignoring the exception.
 
 .. function:: on_connect()
 
-    Called when the client has successfully connected to Discord. This is not
+    Called when the client has successfully connected to hcord. This is not
     the same as the client being fully prepared, see :func:`on_ready` for that.
 
     The warnings on :func:`on_ready` also apply.
@@ -207,7 +207,7 @@ to handle it, which defaults to print a traceback and ignoring the exception.
 .. function:: on_shard_connect(shard_id)
 
     Similar to :func:`on_connect` except used by :class:`AutoShardedClient`
-    to denote when a particular shard ID has connected to Discord.
+    to denote when a particular shard ID has connected to hcord.
 
     .. versionadded:: 1.4
 
@@ -216,16 +216,16 @@ to handle it, which defaults to print a traceback and ignoring the exception.
 
 .. function:: on_disconnect()
 
-    Called when the client has disconnected from Discord, or a connection attempt to Discord has failed.
+    Called when the client has disconnected from hcord, or a connection attempt to hcord has failed.
     This could happen either through the internet being disconnected, explicit calls to close,
-    or Discord terminating the connection one way or the other.
+    or hcord terminating the connection one way or the other.
 
     This function can be called many times without a corresponding :func:`on_connect` call.
 
 .. function:: on_shard_disconnect(shard_id)
 
     Similar to :func:`on_disconnect` except used by :class:`AutoShardedClient`
-    to denote when a particular shard ID has disconnected from Discord.
+    to denote when a particular shard ID has disconnected from hcord.
 
     .. versionadded:: 1.4
 
@@ -234,7 +234,7 @@ to handle it, which defaults to print a traceback and ignoring the exception.
 
 .. function:: on_ready()
 
-    Called when the client is done preparing the data received from Discord. Usually after login is successful
+    Called when the client is done preparing the data received from hcord. Usually after login is successful
     and the :attr:`Client.guilds` and co. are filled up.
 
     .. warning::
@@ -303,11 +303,11 @@ to handle it, which defaults to print a traceback and ignoring the exception.
     Called whenever a websocket event is received from the WebSocket.
 
     This is mainly useful for logging how many events you are receiving
-    from the Discord gateway.
+    from the hcord gateway.
 
     .. versionadded:: 2.0
 
-    :param event_type: The event type from Discord that is received, e.g. ``'READY'``.
+    :param event_type: The event type from hcord that is received, e.g. ``'READY'``.
     :type event_type: :class:`str`
 
 .. function:: on_socket_raw_receive(msg)
@@ -484,11 +484,11 @@ to handle it, which defaults to print a traceback and ignoring the exception.
     will return a :class:`Message` object that represents the message before the content was modified.
 
     Due to the inherently raw nature of this event, the data parameter coincides with
-    the raw data given by the `gateway <https://discord.com/developers/docs/topics/gateway#message-update>`_.
+    the raw data given by the `gateway <https://hcord.com/developers/docs/topics/gateway#message-update>`_.
 
     Since the data payload can be partial, care must be taken when accessing stuff in the dictionary.
     One example of a common case of partial data is when the ``'content'`` key is inaccessible. This
-    denotes an "embed" only edit, which is an edit in which only the embeds are updated by the Discord
+    denotes an "embed" only edit, which is an edit in which only the embeds are updated by the hcord
     embed server.
 
     This requires :attr:`Intents.messages` to be enabled.
@@ -511,7 +511,7 @@ to handle it, which defaults to print a traceback and ignoring the exception.
     .. note::
 
         This doesn't require :attr:`Intents.members` within a guild context,
-        but due to Discord not providing updated user information in a direct message
+        but due to hcord not providing updated user information in a direct message
         it's required for direct messages to receive this event.
         Consider using :func:`on_raw_reaction_add` if you need this and do not otherwise want
         to enable the members intent.
@@ -621,7 +621,7 @@ to handle it, which defaults to print a traceback and ignoring the exception.
 
         This is a low level function that is not generally meant to be used.
         If you are working with components, consider using the callbacks associated
-        with the :class:`~discord.ui.View` instead as it provides a nicer user experience.
+        with the :class:`~hcord.ui.View` instead as it provides a nicer user experience.
 
     .. versionadded:: 2.0
 
@@ -1077,7 +1077,7 @@ to handle it, which defaults to print a traceback and ignoring the exception.
         attributes will be of :class:`Object` rather than the respective models.
 
         Outside of those two attributes, the only other attribute guaranteed to be
-        filled by the Discord gateway for this event is :attr:`Invite.code`.
+        filled by the hcord gateway for this event is :attr:`Invite.code`.
 
     This requires :attr:`Intents.invites` to be enabled.
 
@@ -1094,38 +1094,38 @@ to handle it, which defaults to print a traceback and ignoring the exception.
     :param user: The user that joined or left.
     :type user: :class:`User`
 
-.. _discord-api-utils:
+.. _hcord-api-utils:
 
 Utility Functions
 -----------------
 
-.. autofunction:: discord.utils.find
+.. autofunction:: hcord.utils.find
 
-.. autofunction:: discord.utils.get
+.. autofunction:: hcord.utils.get
 
-.. autofunction:: discord.utils.snowflake_time
+.. autofunction:: hcord.utils.snowflake_time
 
-.. autofunction:: discord.utils.oauth_url
+.. autofunction:: hcord.utils.oauth_url
 
-.. autofunction:: discord.utils.remove_markdown
+.. autofunction:: hcord.utils.remove_markdown
 
-.. autofunction:: discord.utils.escape_markdown
+.. autofunction:: hcord.utils.escape_markdown
 
-.. autofunction:: discord.utils.escape_mentions
+.. autofunction:: hcord.utils.escape_mentions
 
-.. autofunction:: discord.utils.resolve_invite
+.. autofunction:: hcord.utils.resolve_invite
 
-.. autofunction:: discord.utils.resolve_template
+.. autofunction:: hcord.utils.resolve_template
 
-.. autofunction:: discord.utils.sleep_until
+.. autofunction:: hcord.utils.sleep_until
 
-.. autofunction:: discord.utils.utcnow
+.. autofunction:: hcord.utils.utcnow
 
-.. autofunction:: discord.utils.format_dt
+.. autofunction:: hcord.utils.format_dt
 
-.. autofunction:: discord.utils.as_chunks
+.. autofunction:: hcord.utils.as_chunks
 
-.. _discord-api-enums:
+.. _hcord-api-enums:
 
 Enumerations
 -------------
@@ -1283,7 +1283,7 @@ of :class:`enum.Enum`.
         The system message denoting that a thread has been created. This is only
         sent if the thread has been created from an older message. The period of time
         required for a message to be considered old cannot be relied upon and is up to
-        Discord.
+        hcord.
 
         .. versionadded:: 2.0
     .. attribute:: reply
@@ -1310,14 +1310,14 @@ of :class:`enum.Enum`.
 
 .. class:: UserFlags
 
-    Represents Discord User flags.
+    Represents hcord User flags.
 
     .. attribute:: staff
 
-        The user is a Discord Employee.
+        The user is a hcord Employee.
     .. attribute:: partner
 
-        The user is a Discord Partner.
+        The user is a hcord Partner.
     .. attribute:: hypesquad
 
         The user is a HypeSquad Events member.
@@ -1329,7 +1329,7 @@ of :class:`enum.Enum`.
         The user has SMS recovery for Multi Factor Authentication enabled.
     .. attribute:: premium_promo_dismissed
 
-        The user has dismissed the Discord Nitro promotion.
+        The user has dismissed the hcord Nitro promotion.
     .. attribute:: hypesquad_bravery
 
         The user is a HypeSquad Bravery member.
@@ -1347,7 +1347,7 @@ of :class:`enum.Enum`.
         The user is a Team User.
     .. attribute:: system
 
-        The user is a system user (i.e. represents Discord officially).
+        The user is a system user (i.e. represents hcord officially).
     .. attribute:: has_unread_urgent_messages
 
         The user has an unread system message.
@@ -1360,9 +1360,9 @@ of :class:`enum.Enum`.
     .. attribute:: verified_bot_developer
 
         The user is an Early Verified Bot Developer.
-    .. attribute:: discord_certified_moderator
+    .. attribute:: hcord_certified_moderator
 
-        The user is a Discord Certified Moderator.
+        The user is a hcord Certified Moderator.
 
 .. class:: ActivityType
 
@@ -1401,13 +1401,13 @@ of :class:`enum.Enum`.
 
     .. attribute:: ping
 
-        Represents Discord pinging to see if the interaction response server is alive.
+        Represents hcord pinging to see if the interaction response server is alive.
     .. attribute:: application_command
 
         Represents a slash command interaction.
     .. attribute:: component
 
-        Represents a component based interaction, i.e. using the Discord Bot UI Kit.
+        Represents a component based interaction, i.e. using the hcord Bot UI Kit.
 
 .. class:: InteractionResponseType
 
@@ -1616,19 +1616,19 @@ of :class:`enum.Enum`.
         No criteria set.
     .. attribute:: low
 
-        Member must have a verified email on their Discord account.
+        Member must have a verified email on their hcord account.
     .. attribute:: medium
 
-        Member must have a verified email and be registered on Discord for more
+        Member must have a verified email and be registered on hcord for more
         than five minutes.
     .. attribute:: high
 
-        Member must have a verified email, be registered on Discord for more
+        Member must have a verified email, be registered on hcord for more
         than five minutes, and be a member of the guild itself for more than
         ten minutes.
     .. attribute:: highest
 
-        Member must have a verified phone on their Discord account.
+        Member must have a verified phone on their hcord account.
 
 .. class:: NotificationLevel
 
@@ -1667,7 +1667,7 @@ of :class:`enum.Enum`.
 .. class:: ContentFilter
 
     Specifies a :class:`Guild`\'s explicit content filter, which is the machine
-    learning algorithms that Discord uses to detect if an image contains
+    learning algorithms that hcord uses to detect if an image contains
     pornography or otherwise explicit content.
 
     .. container:: operations
@@ -2416,7 +2416,7 @@ of :class:`enum.Enum`.
 
     .. attribute:: channel_follower
 
-        Represents a webhook that is internally managed by Discord, used for following channels.
+        Represents a webhook that is internally managed by hcord, used for following channels.
 
     .. attribute:: application
 
@@ -2444,7 +2444,7 @@ of :class:`enum.Enum`.
 
 .. class:: DefaultAvatar
 
-    Represents the default avatar of a Discord :class:`User`
+    Represents the default avatar of a hcord :class:`User`
 
     .. attribute:: blurple
 
@@ -2724,7 +2724,7 @@ Certain utilities make working with async iterators easier, detailed below.
         :param predicate: The predicate to call on every element. Could be a |coroutine_link|_.
         :rtype: :class:`AsyncIterator`
 
-.. _discord-api-audit-logs:
+.. _hcord-api-audit-logs:
 
 Audit Log Data
 ----------------
@@ -3249,7 +3249,7 @@ AuditLogDiff
 Webhook Support
 ------------------
 
-discord.py offers support for creating, editing, and executing webhooks through the :class:`Webhook` class.
+hcord offers support for creating, editing, and executing webhooks through the :class:`Webhook` class.
 
 Webhook
 ~~~~~~~~~
@@ -3285,7 +3285,7 @@ SyncWebhookMessage
 .. autoclass:: SyncWebhookMessage()
     :members:
 
-.. _discord_api_abcs:
+.. _hcord_api_abcs:
 
 Abstract Base Classes
 -----------------------
@@ -3300,63 +3300,63 @@ This library has a module related to abstract base classes, in which all the ABC
 Snowflake
 ~~~~~~~~~~
 
-.. attributetable:: discord.abc.Snowflake
+.. attributetable:: hcord.abc.Snowflake
 
-.. autoclass:: discord.abc.Snowflake()
+.. autoclass:: hcord.abc.Snowflake()
     :members:
 
 User
 ~~~~~
 
-.. attributetable:: discord.abc.User
+.. attributetable:: hcord.abc.User
 
-.. autoclass:: discord.abc.User()
+.. autoclass:: hcord.abc.User()
     :members:
 
 PrivateChannel
 ~~~~~~~~~~~~~~~
 
-.. attributetable:: discord.abc.PrivateChannel
+.. attributetable:: hcord.abc.PrivateChannel
 
-.. autoclass:: discord.abc.PrivateChannel()
+.. autoclass:: hcord.abc.PrivateChannel()
     :members:
 
 GuildChannel
 ~~~~~~~~~~~~~
 
-.. attributetable:: discord.abc.GuildChannel
+.. attributetable:: hcord.abc.GuildChannel
 
-.. autoclass:: discord.abc.GuildChannel()
+.. autoclass:: hcord.abc.GuildChannel()
     :members:
 
 Messageable
 ~~~~~~~~~~~~
 
-.. attributetable:: discord.abc.Messageable
+.. attributetable:: hcord.abc.Messageable
 
-.. autoclass:: discord.abc.Messageable()
+.. autoclass:: hcord.abc.Messageable()
     :members:
     :exclude-members: history, typing
 
-    .. automethod:: discord.abc.Messageable.history
+    .. automethod:: hcord.abc.Messageable.history
         :async-for:
 
-    .. automethod:: discord.abc.Messageable.typing
+    .. automethod:: hcord.abc.Messageable.typing
         :async-with:
 
 Connectable
 ~~~~~~~~~~~~
 
-.. attributetable:: discord.abc.Connectable
+.. attributetable:: hcord.abc.Connectable
 
-.. autoclass:: discord.abc.Connectable()
+.. autoclass:: hcord.abc.Connectable()
 
-.. _discord_api_models:
+.. _hcord_api_models:
 
-Discord Models
+hcord Models
 ---------------
 
-Models are classes that are received from Discord and are not meant to be created by
+Models are classes that are received from hcord and are not meant to be created by
 the user of the library.
 
 .. danger::
@@ -3370,7 +3370,7 @@ the user of the library.
     If you want to get one of these model classes instances they'd have to be through
     the cache, and a common way of doing so is through the :func:`utils.find` function
     or attributes of model classes that you receive from the events specified in the
-    :ref:`discord-api-events`.
+    :ref:`hcord-api-events`.
 
 .. note::
 
@@ -3918,14 +3918,14 @@ PartialWebhookChannel
 .. autoclass:: PartialWebhookChannel()
     :members:
 
-.. _discord_api_data:
+.. _hcord_api_data:
 
 Data Classes
 --------------
 
 Some classes are just there to be data containers, this lists them.
 
-Unlike :ref:`models <discord_api_models>` you are allowed to create
+Unlike :ref:`models <hcord_api_models>` you are allowed to create
 most of these yourself, even if they can also be used to hold attributes.
 
 Nearly all classes here have :ref:`py:slots` defined which means that it is
@@ -4111,7 +4111,7 @@ PublicUserFlags
 .. autoclass:: PublicUserFlags()
     :members:
 
-.. _discord_ui_kit:
+.. _hcord_ui_kit:
 
 Bot UI Kit
 -------------
@@ -4121,40 +4121,40 @@ The library has helpers to help create component-based UIs.
 View
 ~~~~~~~
 
-.. attributetable:: discord.ui.View
+.. attributetable:: hcord.ui.View
 
-.. autoclass:: discord.ui.View
+.. autoclass:: hcord.ui.View
     :members:
 
 Item
 ~~~~~~~
 
-.. attributetable:: discord.ui.Item
+.. attributetable:: hcord.ui.Item
 
-.. autoclass:: discord.ui.Item
+.. autoclass:: hcord.ui.Item
     :members:
 
 Button
 ~~~~~~~
 
-.. attributetable:: discord.ui.Button
+.. attributetable:: hcord.ui.Button
 
-.. autoclass:: discord.ui.Button
+.. autoclass:: hcord.ui.Button
     :members:
     :inherited-members:
 
-.. autofunction:: discord.ui.button
+.. autofunction:: hcord.ui.button
 
 Select
 ~~~~~~~
 
-.. attributetable:: discord.ui.Select
+.. attributetable:: hcord.ui.Select
 
-.. autoclass:: discord.ui.Select
+.. autoclass:: hcord.ui.Select
     :members:
     :inherited-members:
 
-.. autofunction:: discord.ui.select
+.. autofunction:: hcord.ui.select
 
 
 Exceptions
@@ -4162,7 +4162,7 @@ Exceptions
 
 The following exceptions are thrown by the library.
 
-.. autoexception:: DiscordException
+.. autoexception:: hcordException
 
 .. autoexception:: ClientException
 
@@ -4177,7 +4177,7 @@ The following exceptions are thrown by the library.
 
 .. autoexception:: NotFound
 
-.. autoexception:: DiscordServerError
+.. autoexception:: hcordServerError
 
 .. autoexception:: InvalidData
 
@@ -4191,9 +4191,9 @@ The following exceptions are thrown by the library.
 
 .. autoexception:: InteractionResponded
 
-.. autoexception:: discord.opus.OpusError
+.. autoexception:: hcord.opus.OpusError
 
-.. autoexception:: discord.opus.OpusNotLoaded
+.. autoexception:: hcord.opus.OpusNotLoaded
 
 Exception Hierarchy
 ~~~~~~~~~~~~~~~~~~~~~
@@ -4201,7 +4201,7 @@ Exception Hierarchy
 .. exception_hierarchy::
 
     - :exc:`Exception`
-        - :exc:`DiscordException`
+        - :exc:`hcordException`
             - :exc:`ClientException`
                 - :exc:`InvalidData`
                 - :exc:`InvalidArgument`
@@ -4214,4 +4214,4 @@ Exception Hierarchy
             - :exc:`HTTPException`
                 - :exc:`Forbidden`
                 - :exc:`NotFound`
-                - :exc:`DiscordServerError`
+                - :exc:`hcordServerError`

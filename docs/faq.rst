@@ -1,12 +1,12 @@
 :orphan:
 
-.. currentmodule:: discord
+.. currentmodule:: hcord
 .. _faq:
 
 Frequently Asked Questions
 ===========================
 
-This is a list of Frequently Asked Questions regarding using ``discord.py`` and its extension modules. Feel free to suggest a
+This is a list of Frequently Asked Questions regarding using ``hcord`` and its extension modules. Feel free to suggest a
 new question or submit one via pull requests.
 
 .. contents:: Questions
@@ -81,7 +81,7 @@ General questions regarding library usage belong here.
 Where can I find usage examples?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Example code can be found in the `examples folder <https://github.com/Rapptz/discord.py/tree/master/examples>`_
+Example code can be found in the `examples folder <https://github.com/Rapptz/hcord/tree/master/examples>`_
 in the repository.
 
 How do I set the "Playing" status?
@@ -105,11 +105,11 @@ For memory optimisation purposes, some activities are offered in slimmed-down ve
 
 Putting both of these pieces of info together, you get the following: ::
 
-    client = discord.Client(activity=discord.Game(name='my game'))
+    client = hcord.Client(activity=hcord.Game(name='my game'))
 
     # or, for watching:
-    activity = discord.Activity(name='my activity', type=discord.ActivityType.watching)
-    client = discord.Client(activity=activity)
+    activity = hcord.Activity(name='my activity', type=hcord.ActivityType.watching)
+    client = hcord.Client(activity=activity)
 
 How do I send a message to a specific channel?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -143,25 +143,25 @@ The ID of a message can be accessed via :attr:`Message.id`: ::
 How do I upload an image?
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To upload something to Discord you have to use the :class:`File` object.
+To upload something to hcord you have to use the :class:`File` object.
 
 A :class:`File` accepts two parameters, the file-like object (or file path) and the filename
-to pass to Discord when uploading.
+to pass to hcord when uploading.
 
 If you want to upload an image it's as simple as: ::
 
-    await channel.send(file=discord.File('my_file.png'))
+    await channel.send(file=hcord.File('my_file.png'))
 
 If you have a file-like object you can do as follows: ::
 
     with open('my_file.png', 'rb') as fp:
-        await channel.send(file=discord.File(fp, 'new_filename.png'))
+        await channel.send(file=hcord.File(fp, 'new_filename.png'))
 
 To upload multiple files, you can use the ``files`` keyword argument instead of ``file``\: ::
 
     my_files = [
-        discord.File('result.zip'),
-        discord.File('teaser_graph.png'),
+        hcord.File('result.zip'),
+        hcord.File('teaser_graph.png'),
     ]
     await channel.send(files=my_files)
 
@@ -178,7 +178,7 @@ and then pass an :class:`io.BytesIO` instance to :class:`File` like so:
             if resp.status != 200:
                 return await channel.send('Could not download file...')
             data = io.BytesIO(await resp.read())
-            await channel.send(file=discord.File(data, 'cool_image.png'))
+            await channel.send(file=hcord.File(data, 'cool_image.png'))
 
 
 How can I add a reaction to a message?
@@ -216,7 +216,7 @@ Quick example: ::
     await message.add_reaction(emoji)
 
     # no ID, do a lookup
-    emoji = discord.utils.get(guild.emojis, name='LUL')
+    emoji = hcord.utils.get(guild.emojis, name='LUL')
     if emoji:
         await message.add_reaction(emoji)
 
@@ -248,12 +248,12 @@ this together we can do the following: ::
             # an error happened sending the message
             pass
 
-    voice.play(discord.FFmpegPCMAudio(url), after=my_after)
+    voice.play(hcord.FFmpegPCMAudio(url), after=my_after)
 
 How do I run something in the background?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`Check the background_task.py example. <https://github.com/Rapptz/discord.py/blob/master/examples/background_task.py>`_
+`Check the background_task.py example. <https://github.com/Rapptz/hcord/blob/master/examples/background_task.py>`_
 
 How do I get a specific model?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -286,12 +286,12 @@ specific models.
 Quick example: ::
 
     # find a guild by name
-    guild = discord.utils.get(client.guilds, name='My Server')
+    guild = hcord.utils.get(client.guilds, name='My Server')
 
     # make sure to check if it's found
     if guild is not None:
         # find a channel by name
-        channel = discord.utils.get(guild.text_channels, name='cool-channel')
+        channel = hcord.utils.get(guild.text_channels, name='cool-channel')
 
 How do I make a web request?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -311,7 +311,7 @@ See `aiohttp's full documentation <http://aiohttp.readthedocs.io/en/stable/>`_ f
 How do I use a local image file for an embed image?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Discord special-cases uploading an image attachment and using it within an embed so that it will not
+hcord special-cases uploading an image attachment and using it within an embed so that it will not
 display separately, but instead in the embed's thumbnail, image, footer or author icon.
 
 To do so, upload the image normally with :meth:`abc.Messageable.send`,
@@ -321,25 +321,25 @@ where ``image.png`` is the filename of the image you will send.
 
 Quick example: ::
 
-    file = discord.File("path/to/my/image.png", filename="image.png")
-    embed = discord.Embed()
+    file = hcord.File("path/to/my/image.png", filename="image.png")
+    embed = hcord.Embed()
     embed.set_image(url="attachment://image.png")
     await channel.send(file=file, embed=embed)
 
 .. note ::
 
-    Due to a Discord limitation, filenames may not include underscores.
+    Due to a hcord limitation, filenames may not include underscores.
 
 Is there an event for audit log entries being created?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Since Discord does not dispatch this information in the gateway, the library cannot provide this information.
-This is currently a Discord limitation.
+Since hcord does not dispatch this information in the gateway, the library cannot provide this information.
+This is currently a hcord limitation.
 
 Commands Extension
 -------------------
 
-Questions regarding ``discord.ext.commands`` belong here.
+Questions regarding ``hcord.ext.commands`` belong here.
 
 Why does ``on_message`` make my commands stop working?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

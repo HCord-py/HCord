@@ -1,7 +1,7 @@
-.. currentmodule:: discord
+.. currentmodule:: hcord
 
-.. |commands| replace:: [:ref:`ext.commands <discord_ext_commands>`]
-.. |tasks| replace:: [:ref:`ext.tasks <discord_ext_tasks>`]
+.. |commands| replace:: [:ref:`ext.commands <hcord_ext_commands>`]
+.. |tasks| replace:: [:ref:`ext.tasks <hcord_ext_tasks>`]
 
 .. _whats_new:
 
@@ -61,9 +61,9 @@ New Features
 - Add support for stage channels via :class:`StageChannel` (:issue:`6602`, :issue:`6608`)
 - Add support for :attr:`MessageReference.fail_if_not_exists` (:issue:`6484`)
     - By default, if the message you're replying to doesn't exist then the API errors out.
-      This attribute tells the Discord API that it's okay for that message to be missing.
+      This attribute tells the hcord API that it's okay for that message to be missing.
 
-- Add support for Discord's new permission serialisation scheme.
+- Add support for hcord's new permission serialisation scheme.
 - Add an easier way to move channels using :meth:`abc.GuildChannel.move`
 - Add :attr:`Permissions.use_slash_commands`
 - Add :attr:`Permissions.request_to_speak`
@@ -103,7 +103,7 @@ Bug Fixes
 
 - Fix mentions not working if ``mention_author`` is passed in :meth:`abc.Messageable.send` without :attr:`Client.allowed_mentions` set (:issue:`6192`, :issue:`6458`)
 - Fix user created instances of :class:`CustomActivity` triggering an error (:issue:`4049`)
-    - Note that currently, bot users still cannot set a custom activity due to a Discord limitation.
+    - Note that currently, bot users still cannot set a custom activity due to a hcord limitation.
 - Fix :exc:`ZeroDivisionError` being raised from :attr:`VoiceClient.average_latency` (:issue:`6430`, :issue:`6436`)
 - Fix :attr:`User.public_flags` not updating upon edit (:issue:`6315`)
 - Fix :attr:`Message.call` sometimes causing attribute errors (:issue:`6390`)
@@ -112,7 +112,7 @@ Bug Fixes
 - Fix ``__str__`` magic method raising when a :class:`Guild` is unavailable.
 - Fix potential :exc:`AttributeError` when accessing :attr:`VoiceChannel.members` (:issue:`6602`)
 - :class:`Embed` constructor parameters now implicitly convert to :class:`str` (:issue:`6574`)
-- Ensure ``discord`` package is only run if executed as a script (:issue:`6483`)
+- Ensure ``hcord`` package is only run if executed as a script (:issue:`6483`)
 - |commands| Fix irrelevant commands potentially being unloaded during cog unload due to failure.
 - |commands| Fix attribute errors when setting a cog to :class:`~.ext.commands.HelpCommand` (:issue:`5154`)
 - |commands| Fix :attr:`Context.invoked_with <ext.commands.Context.invoked_with>` being improperly reassigned during a :meth:`~ext.commands.Context.reinvoke` (:issue:`6451`, :issue:`6462`)
@@ -124,8 +124,8 @@ Miscellaneous
 ~~~~~~~~~~~~~~
 
 - User endpoints and all userbot related functionality has been deprecated and will be removed in the next major version of the library.
-- :class:`Permission` class methods were updated to match the UI of the Discord client (:issue:`6476`)
-- ``_`` and ``-`` characters are now stripped when making a new cog using the ``discord`` package (:issue:`6313`)
+- :class:`Permission` class methods were updated to match the UI of the hcord client (:issue:`6476`)
+- ``_`` and ``-`` characters are now stripped when making a new cog using the ``hcord`` package (:issue:`6313`)
 
 .. _vp1p6p0:
 
@@ -174,7 +174,7 @@ New Features
 Bug Fixes
 ~~~~~~~~~~~
 
-- Raise :exc:`DiscordServerError` when reaching 503s repeatedly (:issue:`6044`)
+- Raise :exc:`hcordServerError` when reaching 503s repeatedly (:issue:`6044`)
 - Fix :exc:`AttributeError` when :meth:`Client.fetch_template` is called (:issue:`5986`)
 - Fix errors when playing audio and moving to another channel (:issue:`5953`)
 - Fix :exc:`AttributeError` when voice channels disconnect too fast (:issue:`6039`)
@@ -221,7 +221,7 @@ Miscellaneous
 
 - Members are now loaded during ``GUILD_MEMBER_UPDATE`` events if :attr:`MemberCacheFlags.joined` is set. (:issue:`5930`)
 - |commands| :class:`MemberConverter <ext.commands.MemberConverter>` now properly lazily fetches members if not available from cache.
-    - This is the same as having ``discord.Member`` as the type-hint.
+    - This is the same as having ``hcord.Member`` as the type-hint.
 - :meth:`Guild.chunk` now allows concurrent calls without spamming the gateway with requests.
 
 .. _vp1p5p0:
@@ -229,7 +229,7 @@ Miscellaneous
 v1.5.0
 --------
 
-This version came with forced breaking changes that Discord is requiring all bots to go through on October 7th. It is highly recommended to read the documentation on intents, :ref:`intents_primer`.
+This version came with forced breaking changes that hcord is requiring all bots to go through on October 7th. It is highly recommended to read the documentation on intents, :ref:`intents_primer`.
 
 API Changes
 ~~~~~~~~~~~~~
@@ -245,7 +245,7 @@ New Features
 - Add support for ``__eq__`` for :class:`Message` (:issue:`5789`)
 - Add :meth:`Colour.dark_theme` factory method (:issue:`1584`)
 - Add :meth:`AllowedMentions.none` and :meth:`AllowedMentions.all` (:issue:`5785`)
-- Add more concrete exceptions for 500 class errors under :class:`DiscordServerError` (:issue:`5797`)
+- Add more concrete exceptions for 500 class errors under :class:`hcordServerError` (:issue:`5797`)
 - Implement :class:`VoiceProtocol` to better intersect the voice flow.
 - Add :meth:`Guild.chunk` to fully chunk a guild.
 - Add :class:`MemberCacheFlags` to better control member cache. See :ref:`intents_member_cache` for more info.
@@ -428,7 +428,7 @@ Miscellaneous
 
 - For performance reasons ``websockets`` has been dropped in favour of ``aiohttp.ws``.
 - The blocking logging message now shows the stack trace of where the main thread was blocking
-- The domain name was changed from ``discordapp.com`` to ``discord.com`` to prepare for the required domain migration
+- The domain name was changed from ``hcordapp.com`` to ``hcord.com`` to prepare for the required domain migration
 - Reduce memory usage when reconnecting due to stale references being held by the message cache (:issue:`5133`)
 - Optimize :meth:`abc.GuildChannel.permissions_for` by not creating as many temporary objects (20-32% savings).
 - |commands| Raise :exc:`~ext.commands.CommandRegistrationError` instead of :exc:`ClientException` when a duplicate error is registered (:issue:`4217`)
@@ -522,7 +522,7 @@ New Features
 - Add :attr:`VoiceRegion.europe` and :attr:`VoiceRegion.dubai`. (:issue:`2358`, :issue:`2490`)
 - Add :meth:`TextChannel.follow` to follow a news channel. (:issue:`2367`)
 - Add :attr:`Permissions.view_guild_insights` permission. (:issue:`2415`)
-- Add support for new audit log types. See :ref:`discord-api-audit-logs` for more information. (:issue:`2427`)
+- Add support for new audit log types. See :ref:`hcord-api-audit-logs` for more information. (:issue:`2427`)
     - Note that integration support is not finalized.
 
 - Add :attr:`Webhook.type` to query the type of webhook (:class:`WebhookType`). (:issue:`2441`)
@@ -536,7 +536,7 @@ New Features
     - It should be noted that this feature is restricted to those who are either in Server Discovery or planning to be there.
 
 - Add support for message flags via :attr:`Message.flags` and :class:`MessageFlags`. (:issue:`2433`)
-- Add :attr:`User.system` and :attr:`Profile.system` to know whether a user is an official Discord Trust and Safety account.
+- Add :attr:`User.system` and :attr:`Profile.system` to know whether a user is an official hcord Trust and Safety account.
 - Add :attr:`Profile.team_user` to check whether a user is a member of a team.
 - Add :meth:`Attachment.to_file` to easily convert attachments to :class:`File` for sending.
 - Add certain aliases to :class:`Permissions` to match the UI better. (:issue:`2496`)
@@ -596,14 +596,14 @@ Miscellaneous
 
 - The library now fully supports Python 3.8 without warnings.
 - Bump the dependency of ``websockets`` to 8.0 for those who can use it. (:issue:`2453`)
-- Due to Discord providing :class:`Member` data in mentions, users will now be upgraded to :class:`Member` more often if mentioned.
+- Due to hcord providing :class:`Member` data in mentions, users will now be upgraded to :class:`Member` more often if mentioned.
 - :func:`utils.escape_markdown` now properly escapes new quote markdown.
 - The message cache can now be disabled by passing ``None`` to ``max_messages`` in :class:`Client`.
 - The default message cache size has changed from 5000 to 1000 to accommodate small bots.
 - Lower memory usage by only creating certain objects as needed in :class:`Role`.
 - There is now a sleep of 5 seconds before re-IDENTIFYing during a reconnect to prevent long loops of session invalidation.
 - The rate limiting code now uses millisecond precision to have more granular rate limit handling.
-    - Along with that, the rate limiting code now uses Discord's response to wait. If you need to use the system clock again for whatever reason, consider passing ``assume_synced_clock`` in :class:`Client`.
+    - Along with that, the rate limiting code now uses hcord's response to wait. If you need to use the system clock again for whatever reason, consider passing ``assume_synced_clock`` in :class:`Client`.
 
 - The performance of :attr:`Guild.default_role` has been improved from O(N) to O(1). (:issue:`2375`)
 - The performance of :attr:`Member.roles` has improved due to usage of caching to avoid surprising performance traps.
@@ -636,7 +636,7 @@ Bug Fixes
 - Fix a crash that would trigger during message updates (:issue:`2265`, :issue:`2287`).
 - Fix a bug when :meth:`VoiceChannel.connect` would not return (:issue:`2274`, :issue:`2372`, :issue:`2373`, :issue:`2377`).
 - Fix a crash relating to token-less webhooks (:issue:`2364`).
-- Fix issue where :attr:`Guild.premium_subscription_count` would be ``None`` due to a Discord bug. (:issue:`2331`, :issue:`2376`).
+- Fix issue where :attr:`Guild.premium_subscription_count` would be ``None`` due to a hcord bug. (:issue:`2331`, :issue:`2376`).
 
 .. _vp1p2p3:
 
@@ -723,7 +723,7 @@ Miscellaneous
 - Improve performance of :func:`utils.get` by around 4-6x depending on usage.
 - Improve performance of event parsing lookup by around 2.5x.
 - Keyword arguments in :meth:`Client.start` and :meth:`Client.run` are now validated (:issue:`953`, :issue:`2170`)
-- The Discord error code is now shown in the exception message for :exc:`HTTPException`.
+- The hcord error code is now shown in the exception message for :exc:`HTTPException`.
 - Internal tasks launched by the library will now have their own custom ``__repr__``.
 - All public facing types should now have a proper and more detailed ``__repr__``.
 - |tasks| Errors are now logged via the standard :mod:`py:logging` module.
@@ -764,7 +764,7 @@ New Features
 - Add :meth:`Attachment.read` to fetch the bytes content of an attachment (:issue:`2118`)
 - Add support for voice kicking by passing ``None`` to :meth:`Member.move_to`.
 
-``discord.ext.commands``
+``hcord.ext.commands``
 ++++++++++++++++++++++++++
 
 - Add new :func:`~.commands.dm_only` check.
@@ -785,7 +785,7 @@ Bug Fixes
 - Fix bug where updating your own user did not update your member instances.
 - Tighten constraints of ``__eq__`` in :class:`Spotify` objects (:issue:`2113`, :issue:`2117`)
 
-``discord.ext.commands``
+``hcord.ext.commands``
 ++++++++++++++++++++++++++
 
 - Fix lambda converters in a non-module context (e.g. ``eval``).
@@ -800,11 +800,11 @@ Miscellaneous
 ~~~~~~~~~~~~~~~
 
 - Improve the performance of internal enum creation in the library by about 5x.
-- Make the output of ``python -m discord --version`` a bit more useful.
+- Make the output of ``python -m hcord --version`` a bit more useful.
 - The loop cleanup facility has been rewritten again.
 - The signal handling in :meth:`Client.run` has been removed.
 
-``discord.ext.commands``
+``hcord.ext.commands``
 ++++++++++++++++++++++++++
 
 - Custom exception classes are now used for all default checks in the library (:issue:`2101`)
@@ -1006,7 +1006,7 @@ New Features
 
     - Use :meth:`Client.change_presence` instead for better more up to date functionality.
     - This method is subject for removal in a future API version.
-- Add :meth:`Client.change_presence` for changing your status with the new Discord API change.
+- Add :meth:`Client.change_presence` for changing your status with the new hcord API change.
 
     - This is the only method that allows changing your status to invisible or do not disturb.
 
@@ -1142,7 +1142,7 @@ New Features
 - Added :data:`version_info` named tuple to check version info of the library.
 - Login credentials are now cached to have a faster login experience. You can disable this by passing in ``cache_auth=False``
   when constructing a :class:`Client`.
-- New utility function, :func:`discord.utils.get` to simplify retrieval of items based on attributes.
+- New utility function, :func:`hcord.utils.get` to simplify retrieval of items based on attributes.
 - All data classes now support ``!=``, ``==``, ``hash(obj)`` and ``str(obj)``.
 - Added :meth:`Client.get_bans` to get banned members from a server.
 - Added :meth:`Client.invites_from` to get currently active invites in a server.
@@ -1152,7 +1152,7 @@ New Features
 - Added a way to remove the messages of the user that just got banned in :meth:`Client.ban`.
 - Added :meth:`Client.wait_until_ready` to facilitate easy creation of tasks that require the client cache to be ready.
 - Added :meth:`Client.wait_until_login` to facilitate easy creation of tasks that require the client to be logged in.
-- Add :class:`discord.Game` to represent any game with custom text to send to :meth:`Client.change_status`.
+- Add :class:`hcord.Game` to represent any game with custom text to send to :meth:`Client.change_status`.
 - Add :attr:`Message.nonce` attribute.
 - Add :meth:`Member.permissions_in` as another way of doing :meth:`Channel.permissions_for`.
 - Add :meth:`Client.move_member` to move a member to another voice channel.
@@ -1178,10 +1178,10 @@ Bug Fixes
 - Fix bug where guilds being updated did not edit the items in cache.
 - Fix bug where ``member.roles`` were empty upon joining instead of having the ``@everyone`` role.
 - Fix bug where :meth:`Role.is_everyone` was not being set properly when the role was being edited.
-- :meth:`Client.logs_from` now handles cases where limit > 100 to sidestep the discord API limitation.
+- :meth:`Client.logs_from` now handles cases where limit > 100 to sidestep the hcord API limitation.
 - Fix bug where a role being deleted would trigger a ``ValueError``.
 - Fix bug where :meth:`Permissions.kick_members` and :meth:`Permissions.ban_members` were flipped.
-- Mentions are now triggered normally. This was changed due to the way discord handles it internally.
+- Mentions are now triggered normally. This was changed due to the way hcord handles it internally.
 - Fix issue when a :class:`Message` would attempt to upgrade a :attr:`Message.server` when the channel is
   a :class:`Object`.
 - Unavailable servers were not being added into cache, this has been corrected.

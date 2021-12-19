@@ -1,4 +1,4 @@
-discord.py
+hcord
 ==========
 
 .. image:: https://discord.com/api/guilds/336642139381301249/embed.png

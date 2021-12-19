@@ -109,5 +109,5 @@ Links
 ------
 
 - `Documentation <https://hcord.readthedocs.io/en/latest/index.html>`_
-- `Official Discord Server <https://discord.gg/r3sSKJJ>`_
+- `Official Discord Server <https://discord.gg/955qSJuDfd>`_
 - `Discord API <https://discord.gg/discord-api>`_

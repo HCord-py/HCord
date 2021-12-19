@@ -46,12 +46,12 @@ extras_require = {
 }
 
 packages = [
-    'discord',
-    'discord.types',
-    'discord.ui',
-    'discord.webhook',
-    'discord.ext.commands',
-    'discord.ext.tasks',
+    'hcord',
+    'hcord.types',
+    'hcord.ui',
+    'hcord.webhook',
+    'hcord.ext.commands',
+    'hcord.ext.tasks',
 ]
 
 setup(name='Hcord',

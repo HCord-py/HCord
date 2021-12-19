@@ -10,6 +10,9 @@ HCord
 .. image:: https://img.shields.io/pypi/pyversions/hcord.svg
    :target: https://pypi.python.org/pypi/hcord
    :alt: PyPI supported Python versions
+.. image:: https://img.shields.io/pypi/dm/hcord.svg
+   :target: https://pypi.python.org/pypi/hcord
+   :alt: PyPI downloads
 
 A fork of discord.py project. HCord is a modern, easy to use, feature-rich, and async ready API wrapper for Discord written in Python.
 

@@ -1,4 +1,4 @@
-.. currentmodule:: discord
+.. currentmodule:: hcord
 
 .. _ext_commands_extensions:
 

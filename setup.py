@@ -55,11 +55,11 @@ packages = [
 ]
 
 setup(name='Hcord',
-      author='Rapptz',
-      url='https://github.com/Rapptz/discord.py',
+      author='HexyeDEV',
+      url='https://github.com/HexyeDEV/hcord',
       project_urls={
-        "Documentation": "https://discordpy.readthedocs.io/en/latest/",
-        "Issue tracker": "https://github.com/Rapptz/discord.py/issues",
+        "Documentation": "https://hcord.readthedocs.io/en/latest/",
+        "Issue tracker": "https://github.com/HexyeDEV/hcord/issues",
       },
       version=version,
       packages=packages,
@@ -79,6 +79,7 @@ setup(name='Hcord',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
         'Topic :: Internet',
         'Topic :: Software Development :: Libraries',
         'Topic :: Software Development :: Libraries :: Python Modules',

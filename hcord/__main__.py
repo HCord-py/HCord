@@ -37,11 +37,11 @@ def show_version():
 
     entries.append('- Python v{0.major}.{0.minor}.{0.micro}-{0.releaselevel}'.format(sys.version_info))
     version_info = hcord.version_info
-    entries.append('- discord.py v{0.major}.{0.minor}.{0.micro}-{0.releaselevel}'.format(version_info))
+    entries.append('- hcord v{0.major}.{0.minor}.{0.micro}-{0.releaselevel}'.format(version_info))
     if version_info.releaselevel != 'final':
-        pkg = pkg_resources.get_distribution('discord.py')
+        pkg = pkg_resources.get_distribution('hcord')
         if pkg:
-            entries.append(f'    - discord.py pkg_resources: v{pkg.version}')
+            entries.append(f'    - hcord.py pkg_resources: v{pkg.version}')
 
     entries.append(f'- aiohttp v{aiohttp.__version__}')
     uname = platform.uname()
@@ -54,8 +54,8 @@ def core(parser, args):
 
 _bot_template = """#!/usr/bin/env python3
 
-from discord.ext import commands
-import discord
+from hcord.ext import commands
+import hcord
 import config
 
 class Bot(commands.{base}):
@@ -108,8 +108,8 @@ var/
 config.py
 """
 
-_cog_template = '''from discord.ext import commands
-import discord
+_cog_template = '''from hcord.ext import commands
+import hcord
 
 class {name}(commands.Cog{attrs}):
     """The description for {name} goes here."""
@@ -284,7 +284,7 @@ def add_newcog_args(subparser):
     parser.add_argument('--full', help='add all special methods as well', action='store_true')
 
 def parse_args():
-    parser = argparse.ArgumentParser(prog='discord', description='Tools for helping with discord.py')
+    parser = argparse.ArgumentParser(prog='hcord', description='Tools for helping with hcord')
     parser.add_argument('-v', '--version', action='store_true', help='shows the library version')
     parser.set_defaults(func=core)
 

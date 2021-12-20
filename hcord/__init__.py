@@ -13,7 +13,7 @@ __title__ = 'Hcord'
 __author__ = 'HCord-py'
 __license__ = 'MIT'
 __copyright__ = 'Copyright 2021-present HCord-py'
-__version__ = '2.0.1'
+__version__ = '2.0.1.2'
 
 __path__ = __import__('pkgutil').extend_path(__path__, __name__)
 

@@ -43,11 +43,13 @@ from typing import (
 import asyncio
 import functools
 import inspect
+import re
 import datetime
 
 import hcord
 
 from .errors import *
+from ...errors import ValidationError
 from .cooldowns import Cooldown, BucketType, CooldownMapping, MaxConcurrency, DynamicCooldownMapping
 from .converter import run_converters, get_converter, Greedy
 from ._types import _BaseCommand

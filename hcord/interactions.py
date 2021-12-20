@@ -375,6 +375,8 @@ class Interaction:
             Ephemeral messages should not be sent with this as if
             the :attr:`Interaction.channel` is fallen back to,
             ephemeral messages cannot be sent with this.
+        .. versionadded:: 2.0.1
+        
         Returns
         -------
         Optional[:class:`Message`]

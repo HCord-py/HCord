@@ -52,6 +52,7 @@ __all__ = (
     'ConnectionClosed',
     'PrivilegedIntentsRequired',
     'InteractionResponded',
+    'ValidationError'
 )
 
 
@@ -72,6 +73,11 @@ class ClientException(DiscordException):
 
     pass
 
+
+class ValidationError(DiscordException):
+    """An Exception that is raised when there is a Validation Error."""
+
+    pass
 
 class NoMoreItems(DiscordException):
     """Exception that is raised when an async iteration operation has no more items."""

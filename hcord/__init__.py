@@ -10,9 +10,9 @@ A basic wrapper for the Discord API.
 """
 
 __title__ = 'Hcord'
-__author__ = 'Hexye'
+__author__ = 'HCord-py'
 __license__ = 'MIT'
-__copyright__ = 'Copyright 2021-present Hexye'
+__copyright__ = 'Copyright 2021-present HCord-py'
 __version__ = '2.0.1'
 
 __path__ = __import__('pkgutil').extend_path(__path__, __name__)

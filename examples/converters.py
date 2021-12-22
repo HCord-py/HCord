@@ -16,8 +16,8 @@ async def userinfo(ctx: commands.Context, user: hcord.User):
     # In the command signature above, you can see that the `user`
     # parameter is typehinted to `discord.User`. This means that
     # during command invocation we will attempt to convert
-    # the value passed as `user` to a `discord.User` instance.
-    # The documentation notes what can be converted, in the case of `discord.User`
+    # the value passed as `user` to a `hcord.User` instance.
+    # The documentation notes what can be converted, in the case of `hcord.User`
     # you pass an ID, mention or username (discrim optional)
     # E.g. 80088516616269824, @Danny or Danny#0007
 
@@ -43,7 +43,7 @@ class ChannelOrMemberConverter(commands.Converter):
     async def convert(self, ctx: commands.Context, argument: str):
         # In this example we have made a custom converter.
         # This checks if an input is convertible to a
-        # `discord.Member` or `discord.TextChannel` instance from the
+        # `hcord.Member` or `hcord.TextChannel` instance from the
         # input the user has given us using the pre-existing converters
         # that the library provides.
 

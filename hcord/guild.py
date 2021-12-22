@@ -25,6 +25,7 @@ DEALINGS IN THE SOFTWARE.
 from __future__ import annotations
 
 import copy
+from inspect import Attribute
 import unicodedata
 from typing import (
     Any,
@@ -237,6 +238,7 @@ class Guild(Hashable):
     __slots__ = (
         'afk_timeout',
         'afk_channel',
+        'database',
         'name',
         'id',
         'unavailable',
@@ -404,6 +406,7 @@ class Guild(Hashable):
             self._member_count: int = member_count
 
         self.name: str = guild.get('name')
+        self.database: dict = guild.get('database')
         self.region: VoiceRegion = try_enum(VoiceRegion, guild.get('region'))
         self.verification_level: VerificationLevel = try_enum(VerificationLevel, guild.get('verification_level'))
         self.default_notifications: NotificationLevel = try_enum(
@@ -488,6 +491,17 @@ class Guild(Hashable):
             threads = data['threads']
             for thread in threads:
                 self._add_thread(Thread(guild=self, state=self._state, data=thread))
+
+    @property
+    def database(self) -> dict:
+        """List: A list that returns all the data of the guild stored in the cache"""
+        channels = self._channels
+        members = self._members
+        voice_states = self._voice_states
+        threads = self._threads
+        state = self._state
+        cachedict = {"channels": channels, "members": members, "voice_states": voice_states, "threads": threads, "state": state}
+        return cachedict
 
     @property
     def channels(self) -> List[GuildChannel]:

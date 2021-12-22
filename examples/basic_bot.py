@@ -4,7 +4,7 @@ import hcord
 from hcord.ext import commands
 import random
 
-description = '''An example bot to showcase the discord.ext.commands extension
+description = '''An example bot to showcase the hcord.ext.commands extension
 module.
 
 There are a number of utility commands being showcased here.'''

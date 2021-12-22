@@ -139,6 +139,7 @@ class Guild(_BaseGuildPreview, _GuildOptional):
     premium_tier: PremiumTier
     preferred_locale: str
     public_updates_channel_id: Optional[Snowflake]
+    database: dict
 
 
 class InviteGuild(Guild, total=False):

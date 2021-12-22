@@ -223,12 +223,12 @@ class GuildChannel:
 
     The following implement this ABC:
 
-    - :class:`~discord.TextChannel`
-    - :class:`~discord.VoiceChannel`
-    - :class:`~discord.CategoryChannel`
-    - :class:`~discord.StageChannel`
+    - :class:`~hcord.TextChannel`
+    - :class:`~hcord.VoiceChannel`
+    - :class:`~hcord.CategoryChannel`
+    - :class:`~hcord.StageChannel`
 
-    This ABC must also implement :class:`~discord.abc.Snowflake`.
+    This ABC must also implement :class:`~hcord.abc.Snowflake`.
 
     Attributes
     -----------
